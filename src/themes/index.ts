@@ -1,4 +1,11 @@
 export interface Theme {
+    grid: {
+      columns: string;
+      rows: string;
+      horizPadding: string;
+      vertPadding: string;
+      gap: string;
+    }
     colors: {
       background: string;
       text: string;

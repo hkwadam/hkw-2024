@@ -6,6 +6,8 @@ const StyledContainer = styled.div`
   color: ${({ theme }) => theme.colors.text};
   padding: ${({ theme }) => theme.spacing.padding};
   font-family: ${({ theme }) => theme.typography.fontFamily};
+  grid-column-start: 2;
+  grid-column-end: 3;
 `;
 
 export default StyledContainer;

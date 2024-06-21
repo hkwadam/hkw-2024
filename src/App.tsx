@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ThemeProvider, Global, css } from '@emotion/react';
 import ThemeSelector from './components/ThemeSelector';
+import GlobalGrid from './styled_components/GlobalGrid';
 import { darkTheme, lightTheme, brightTheme, Theme } from './themes';
 
 const themeMap: { [key: string]: Theme } = {
@@ -25,7 +26,10 @@ const App: React.FC = () => {
           }
         `}
       />
+    <GlobalGrid >      
       <ThemeSelector setTheme={setTheme} />
+      <p>other stuff</p>
+    </GlobalGrid>
     </ThemeProvider>
   );
 }
