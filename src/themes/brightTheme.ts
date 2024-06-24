@@ -2,11 +2,12 @@
 import { Theme } from './index';
 
 const brightTheme: Theme = {
+    global: {
+        padding: '8px 100px',
+    },
     grid: {
         columns: '1fr 1fr',
-        rows: '1fr 1fr',
         horizPadding: '0px',
-        vertPadding: '0px',
         gap: '100px 50px',
     },
     colors: {

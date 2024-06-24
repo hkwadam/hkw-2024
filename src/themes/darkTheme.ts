@@ -2,11 +2,12 @@
 import { Theme } from './index';
 
 const darkTheme: Theme = {
+    global: {
+        padding: '24px 64px',
+    },
     grid: {
-        columns: '1fr 1fr 1fr 1fr',
-        rows: '1fr 1fr 1fr 1fr',
+        columns: 'repeat( 4, 1fr)',
         horizPadding: '16px',
-        vertPadding: '16px',
         gap: '0px 200px',
     },
     colors: {

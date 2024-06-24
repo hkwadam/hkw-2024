@@ -2,11 +2,12 @@
 import { Theme } from './index';
 
 const lightTheme: Theme = {
+    global: {
+        padding: '16px 32px',
+    },
     grid: {
-        columns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-        rows: '1fr 1fr',
+        columns: 'repeat( 8, 1fr)',
         horizPadding: '8px',
-        vertPadding: '8px',
         gap: '10px 20px',
     },
     colors: {

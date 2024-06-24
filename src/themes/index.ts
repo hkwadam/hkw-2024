@@ -1,9 +1,10 @@
 export interface Theme {
+    global: {
+      padding: string;
+    }
     grid: {
       columns: string;
-      rows: string;
       horizPadding: string;
-      vertPadding: string;
       gap: string;
     }
     colors: {

@@ -13,7 +13,8 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({ setTheme }) => {
   };
 
   return (
-    <StyledContainer>
+    <>
+    <StyledContainer columnStart={'2'} columnEnd={'3'} flexDirection={'column'}>
       <StyledSelect onChange={handleThemeChange}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
@@ -21,6 +22,10 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({ setTheme }) => {
       </StyledSelect>
       <p>FONT TEST font test</p>
     </StyledContainer>
+    <StyledContainer columnStart={'1'} columnEnd={'span end'} flexDirection={'column'}>
+      <p>test</p>
+    </StyledContainer>
+    </>
   );
 };
 
