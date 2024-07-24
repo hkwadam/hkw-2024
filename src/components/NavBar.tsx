@@ -39,9 +39,9 @@ const NavBar: React.FC<NavBarProps> = ({ homeRef, servicesRef, contactRef }) => 
           <li>
             <button onClick={() => handleScroll(homeRef)}>HKW</button>
           </li>
-          <li>
+          {/* <li>
             <button onClick={() => handleScroll(servicesRef)}>Services</button>
-          </li>
+          </li> */}
           <li>
             <button onClick={() => handleScroll(contactRef)}>Contact</button>
           </li>

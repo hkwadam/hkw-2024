@@ -5,7 +5,7 @@ const baseTheme: Partial<Theme> = {
     padding: '100px 60px',
   },
   nav: {
-    padding: '60px 60px 0 60px',
+    padding: '0',
     fontSize: '24px',
     buttonBackground: 'transparent',
     buttonColor: '#fff',

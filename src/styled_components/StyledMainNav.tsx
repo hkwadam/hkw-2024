@@ -5,9 +5,8 @@ const StyledMainNav = styled.div`
   background: ${({ theme }) => theme.colors.mainNavBackground};
   color: ${({ theme }) => theme.colors.mainNavText};
   padding: ${({ theme }) => theme.nav.padding || '0'} ;
-  position: fixed;
-  top: 0;
-  left: 0;
+  grid-column-start: 1;
+  grid-column-end: 13;
   width: 100%;
   box-sizing: border-box;
   z-index: 100;
