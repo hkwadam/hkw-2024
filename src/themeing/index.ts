@@ -1,6 +1,8 @@
 export interface Theme {
     root: {
       padding: string;
+      gridTemplateColumns: string;
+      gap: string;
     },
     colors: {
       background: string;
@@ -13,10 +15,12 @@ export interface Theme {
     };
     nav: {
       padding: string;
-      fontSize: string;
       buttonBackground: string;
       buttonColor: string;
       buttonPadding: string;
+      fontSize: string;
+      fontWeight: string;
+      lineHeight: string;
     }
   }
   

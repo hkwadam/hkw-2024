@@ -10,6 +10,7 @@ const StyledMainNav = styled.div`
   width: 100%;
   box-sizing: border-box;
   z-index: 100;
+  display: grid;
   ul {
     list-style: none;
     margin: 0;
@@ -20,7 +21,10 @@ const StyledMainNav = styled.div`
     align-items: center;
   }
   li button {
+    display: flex;
     font-size: ${({ theme }) => theme.nav.fontSize || '20px'} ;
+    font-weight: ${({ theme }) => theme.nav.fontWeight || '700'} ;
+    line-height: ${({ theme }) => theme.nav.lineHeight || ''} ;
     background-color: ${({ theme }) => theme.nav.buttonBackground || 'transparent'} ;
     color: ${({ theme }) => theme.nav.buttonColor || '#fff'} ;
     border: none;

@@ -15,8 +15,12 @@ const GlobalStyles: React.FC = () => (
       },
       #root {
         display: grid;
-        grid-template-columns: repeat( 12, 1fr);
+        gap: ${theme.root.gap};
+        grid-template-columns: ${theme.root.gridTemplateColumns};
         padding: ${theme.root.padding};
+        p {
+          margin: 0;
+        }
       }
     `}
   />

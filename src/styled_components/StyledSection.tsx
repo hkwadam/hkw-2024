@@ -5,18 +5,18 @@ interface StyledSectionProps {
   columnStart?: string;
   columnEnd?: string;
   padding?: string;
+  gap?: string;
   backgroundColor?: string;
-  gridColumns?: string;
 }
 
 const StyledSection = styled.div<StyledSectionProps>`
   background: ${({ backgroundColor }) => backgroundColor || 'transparent'} ;
   color: ${({ theme }) => theme.colors.text};
   padding: ${({ padding }) => padding || '0'} ;
-  grid-column: ${({ columnStart, columnEnd }) => columnStart && columnEnd ? `${columnStart} / ${columnEnd}` : ''} ;
   display: grid;
-  grid-template-columns: ${({ gridColumns }) => gridColumns || ''};
-  height: 100vh;
+  grid-template-columns: ${({ theme }) => theme.root.gridTemplateColumns};
+  grid-column: ${({ columnStart, columnEnd }) => columnStart && columnEnd ? `${columnStart} / ${columnEnd}` : ''} ;
+  gap: ${({ gap, theme }) => gap || theme.root.gap || '0'};
 `;
 
 export default StyledSection;
