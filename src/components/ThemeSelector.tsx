@@ -14,16 +14,11 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({ setTheme }) => {
 
   return (
     <>
-    <StyledContainer columnStart={'2'} columnEnd={'3'} flexDirection={'column'}>
-      <StyledSelect onChange={handleThemeChange}>
+    <StyledContainer columnStart={'1'} columnEnd={'6'} padding={'0'}>
+      <StyledSelect onChange={handleThemeChange} padding={'8px'} margin={'0px'}>
         <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="bright">Bright</option>
+        <option value="dark">Dark</option>ork
       </StyledSelect>
-      <p>FONT TEST font test</p>
-    </StyledContainer>
-    <StyledContainer columnStart={'1'} columnEnd={'span end'} flexDirection={'column'}>
-      <p>test</p>
     </StyledContainer>
     </>
   );

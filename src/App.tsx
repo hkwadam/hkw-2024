@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { ThemeProvider, Global, css } from '@emotion/react';
-import NavBar from './components/NavBar';
-import HomePage from "./pages/HomePage";
-import AboutPage from './pages/AboutPage';
-import TeamPage from './pages/TeamPage';
+import { ThemeProvider } from '@emotion/react'; // allows for theme changes
+import ThemeSelector from './components/ThemeSelector';
+import NavBar from './components/NavBar'; 
+import LandingPage from "./pages/LandingPage";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-import { darkTheme, lightTheme, brightTheme, Theme } from './themes';
+import { darkTheme, lightTheme, Theme } from './themeing'; // our defined themes
+import GlobalStyles from './themeing/GlobalStyles';  // controls things like global padding, font size, and general themeing
+
 
 const themeMap: { [key: string]: Theme } = {
   dark: darkTheme,
   light: lightTheme,
-  bright: brightTheme,
 };
 
 const App: React.FC = () => {
@@ -22,27 +22,14 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={themeMap[theme]}>
-      <Global
-        styles={(theme: Theme) => css`
-          body {
-            margin: 0;
-            padding: ${theme.global.padding};
-            background-color: ${theme.colors.background};
-            color: ${theme.colors.text};
-            font-size: ${theme.typography.fontSize};
-          }
-          #root {
-            display: grid;
-            grid-template-columns: ${theme.grid.columns};
-          }
-        `}
-      />
-      <Router>
+      <GlobalStyles />
+      <ThemeSelector setTheme={setTheme} />
+      {/* even though we only have 1 route rn we can still use router for anchor links and it'll set 
+      us up well when we move to more than 1 page */}
+      <Router> 
         <NavBar />
         <Routes>
-          <Route path="/" element={<HomePage setTheme={setTheme} />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/team" element={<TeamPage />} />
+          <Route path="/" element={<LandingPage setTheme={setTheme} />} />
         </Routes>
       </Router>
     </ThemeProvider>
