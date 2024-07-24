@@ -8,6 +8,8 @@ const lightTheme: Theme = {
         selectBackground: '#f0f0f0',
         selectText: '#000',
         border: '#000',
+        mainNavBackground: 'transparent',
+        mainNavText: '#171717',
     }
 };
 

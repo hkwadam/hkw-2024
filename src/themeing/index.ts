@@ -5,6 +5,8 @@ export interface Theme {
       selectBackground: string;
       selectText: string;
       border: string;
+      mainNavBackground: string;
+      mainNavText: string;
     };
   }
   

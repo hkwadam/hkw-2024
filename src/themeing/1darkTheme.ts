@@ -8,6 +8,8 @@ const darkTheme: Theme = {
         selectBackground: '#555',
         selectText: '#fff',
         border: '#fff',
+        mainNavBackground: 'transparent',
+        mainNavText: '#fff',
     }
 };
 

@@ -14,7 +14,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({ setTheme }) => {
 
   return (
     <>
-    <StyledContainer columnStart={'1'} columnEnd={'6'} padding={'0'}>
+    <StyledContainer columnStart={'1'} columnEnd={'13'} padding={'0'}>
       <StyledSelect onChange={handleThemeChange} padding={'8px'} margin={'0px'}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>ork

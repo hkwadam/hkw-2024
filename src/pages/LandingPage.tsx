@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import Home from "../sections/Home";
+import Services from "../sections/Services";
+import Contact from "../sections/Contact";
 
 interface LandingPageProps {
     setTheme: React.Dispatch<React.SetStateAction<string>>;
@@ -14,6 +16,10 @@ const LandingPage: React.FC<LandingPageProps> = () => {
       because then the styled components gridding wont work */}
       <div id="home"></div>
       <Home />
+      <div id="services"></div>
+      <Services />
+      <div id="contact"></div>
+      <Contact />
     </>
   );
 };
