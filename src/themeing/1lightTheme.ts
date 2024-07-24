@@ -1,7 +1,8 @@
-// src/themes/lightTheme.ts
 import { Theme } from './index';
+import baseTheme from './baseTheme';
 
 const lightTheme: Theme = {
+    ...baseTheme,
     colors: {
         background: '#fff',
         text: '#171717',
@@ -10,7 +11,7 @@ const lightTheme: Theme = {
         border: '#000',
         mainNavBackground: 'transparent',
         mainNavText: '#171717',
-    }
-};
+    },
+} as Theme;
 
 export default lightTheme;

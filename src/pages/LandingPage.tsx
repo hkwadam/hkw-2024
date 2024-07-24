@@ -5,20 +5,20 @@ import Services from "../sections/Services";
 import Contact from "../sections/Contact";
 
 interface LandingPageProps {
-    setTheme: React.Dispatch<React.SetStateAction<string>>;
-  }
+  setTheme: React.Dispatch<React.SetStateAction<string>>;
+  homeRef: React.RefObject<HTMLDivElement>;
+  servicesRef: React.RefObject<HTMLDivElement>;
+  contactRef: React.RefObject<HTMLDivElement>;
+}
 
-const LandingPage: React.FC<LandingPageProps> = () => {
-
+const LandingPage: React.FC<LandingPageProps> = ({ homeRef, servicesRef, contactRef }) => {
   return (
     <>
-      {/* this provides the anchor link for home. we can't just wrap home in a div with id of "home"
-      because then the styled components gridding wont work */}
-      <div id="home"></div>
+      <div ref={homeRef}></div>
       <Home />
-      <div id="services"></div>
+      <div ref={servicesRef}></div>
       <Services />
-      <div id="contact"></div>
+      <div ref={contactRef}></div>
       <Contact />
     </>
   );

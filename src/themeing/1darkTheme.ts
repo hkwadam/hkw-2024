@@ -1,7 +1,8 @@
-// src/themes/darkTheme.ts
 import { Theme } from './index';
+import baseTheme from './baseTheme';
 
 const darkTheme: Theme = {
+    ...baseTheme,
     colors: {
         background: '#171717',
         text: '#fff',
@@ -10,7 +11,7 @@ const darkTheme: Theme = {
         border: '#fff',
         mainNavBackground: 'transparent',
         mainNavText: '#fff',
-    }
-};
+    },
+} as Theme;
 
 export default darkTheme;

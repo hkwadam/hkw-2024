@@ -8,7 +8,6 @@ const GlobalStyles: React.FC = () => (
     styles={(theme: Theme) => css`
       body {
         margin: 0;
-        padding: 16px 32px;
         background-color: ${theme.colors.background};
         color: ${theme.colors.text};
         font-size: 20px;
@@ -17,6 +16,7 @@ const GlobalStyles: React.FC = () => (
       #root {
         display: grid;
         grid-template-columns: repeat( 12, 1fr);
+        padding: ${theme.root.padding};
       }
     `}
   />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ThemeProvider } from '@emotion/react'; // allows for theme changes
 import ThemeSelector from './components/ThemeSelector';
 import NavBar from './components/NavBar'; 
@@ -18,18 +18,23 @@ const themeMap: { [key: string]: Theme } = {
 };
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = useState<string>('dark');
+
+  const homeRef = useRef<HTMLDivElement | null >(null);
+  const servicesRef = useRef<HTMLDivElement | null >(null);
+  const contactRef = useRef<HTMLDivElement | null >(null);
 
   return (
     <ThemeProvider theme={themeMap[theme]}>
       <GlobalStyles />
-      <ThemeSelector setTheme={setTheme} />
+      {/* TODO: re-enable theme selector if we want it  */}
+      {/* <ThemeSelector setTheme={setTheme} /> */}
       {/* even though we only have 1 route rn we can still use router for anchor links and it'll set 
       us up well when we move to more than 1 page */}
       <Router> 
-        <NavBar />
+        <NavBar homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} />
         <Routes>
-          <Route path="/" element={<LandingPage setTheme={setTheme} />} />
+          <Route path="/" element={<LandingPage setTheme={setTheme} homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} />} />
         </Routes>
       </Router>
     </ThemeProvider>

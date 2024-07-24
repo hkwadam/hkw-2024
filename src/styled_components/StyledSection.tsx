@@ -16,6 +16,7 @@ const StyledSection = styled.div<StyledSectionProps>`
   grid-column: ${({ columnStart, columnEnd }) => columnStart && columnEnd ? `${columnStart} / ${columnEnd}` : ''} ;
   display: grid;
   grid-template-columns: ${({ gridColumns }) => gridColumns || ''};
+  height: 100vh;
 `;
 
 export default StyledSection;
