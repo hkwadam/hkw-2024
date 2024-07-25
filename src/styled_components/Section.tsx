@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 
 const Section = styled.div`
-  background: transparent';
+  background: transparent;
   color: ${({ theme }) => theme.colors.text};
   display: grid;
   grid-template-columns: ${({ theme }) => theme.root.gridTemplateColumns};

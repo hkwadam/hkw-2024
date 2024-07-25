@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ThemeProvider } from '@emotion/react'; // allows for theme changes
+import { ThemeProvider } from '@emotion/react'; // allows for theme change
 // import ThemeSelector from './components/ThemeSelector';
 import LandingPage from "./pages/LandingPage";
 import {
@@ -17,6 +17,7 @@ const themeMap: { [key: string]: Theme } = {
 };
 
 const App: React.FC = () => {
+
   const [theme, setTheme] = useState<string>('dark');
 
   const homeRef = useRef<HTMLDivElement | null >(null);
