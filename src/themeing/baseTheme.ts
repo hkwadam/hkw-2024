@@ -4,7 +4,7 @@ const baseTheme: Partial<Theme> = {
   root: {
     padding: '0 60px',
     gridTemplateColumns: 'repeat( 12, 1fr)',
-    gap: '16px',
+    gap: '0 16px',
   },
   nav: {
     padding: '36px 0',

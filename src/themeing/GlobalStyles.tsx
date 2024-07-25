@@ -10,7 +10,7 @@ const GlobalStyles: React.FC = () => (
         margin: 0;
         background-color: ${theme.colors.background};
         color: ${theme.colors.text};
-        font-size: 20px;
+        font-size: 16px;
         font-family: "Tahoma", sans-serif;
       },
       #root {
@@ -18,9 +18,9 @@ const GlobalStyles: React.FC = () => (
         gap: ${theme.root.gap};
         grid-template-columns: ${theme.root.gridTemplateColumns};
         padding: ${theme.root.padding};
-        p {
-          margin: 0;
-        }
+      }
+      p {
+        margin: 0;
       }
     `}
   />
