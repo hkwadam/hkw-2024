@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import StyledMainNav from '../styled_components/StyledMainNav';
+import styled from '@emotion/styled';
+import MainNav from '../styled_components/MainNav';
+import StyledTextColoredPunct from '../styled_components/TextColorPunct';
 
 interface NavBarProps {
   homeRef: React.RefObject<HTMLDivElement>;
@@ -9,6 +11,18 @@ interface NavBarProps {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ homeRef, servicesRef, contactRef }) => {
+
+  const ContactButton = styled(StyledTextColoredPunct)`
+        color: #fff;
+        font-family: 'PFGrandGothik', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 100%;
+        span {
+            color: #FF354D;
+        }
+    `;
+
   const handleScroll = (ref: React.RefObject<HTMLDivElement>) => {
     // TODO: change the offset based on the actual breakpoints and needed value
     let offset = 100; // default (desktop) offset so that when you scroll to a region it will fall below the navbar
@@ -33,7 +47,7 @@ const NavBar: React.FC<NavBarProps> = ({ homeRef, servicesRef, contactRef }) => 
   };
 
   return (
-    <StyledMainNav>
+    <MainNav>
       <nav>
         <ul>
           <li>
@@ -47,11 +61,15 @@ const NavBar: React.FC<NavBarProps> = ({ homeRef, servicesRef, contactRef }) => 
             <button onClick={() => handleScroll(servicesRef)}>Services</button>
           </li> */}
           <li>
-            <button onClick={() => handleScroll(contactRef)}>Let's Talk</button>
+            <button onClick={() => handleScroll(contactRef)}>
+             <ContactButton>
+                Let's Talk<span>.</span>
+             </ContactButton>
+            </button>
           </li>
         </ul>
       </nav>
-    </StyledMainNav>
+    </MainNav>
   );
 };
 

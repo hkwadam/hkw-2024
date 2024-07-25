@@ -1,25 +1,33 @@
+// export default ThemeSelector;
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import StyledSelect from '../styled_components/StyledSelect';
-import StyledContainer from '../styled_components/StyledContainer';
+import styled from '@emotion/styled';
+import Select from '../styled_components/Select';
+import Container from '../styled_components/Container';
 
 interface ThemeSelectorProps {
   setTheme: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ThemeSelector: React.FC<ThemeSelectorProps> = ({ setTheme }) => {
+
+  const SelectContainer = styled(Container)`
+    grid-column: 1 / 13;
+    padding: 16px 0;
+  `
+
   const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTheme(event.target.value);
   };
 
   return (
     <>
-    <StyledContainer columnStart={'1'} columnEnd={'13'} padding={'16px 0'}>
-      <StyledSelect onChange={handleThemeChange} padding={'8px'} margin={'0px'}>
+    <SelectContainer>
+      <Select onChange={handleThemeChange}>
         <option value="dark">Dark</option>
         <option value="light">Light</option>
-      </StyledSelect>
-    </StyledContainer>
+      </Select>
+    </SelectContainer>
     </>
   );
 };

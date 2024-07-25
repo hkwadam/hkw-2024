@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 
-const StyledMainNav = styled.div`
+const MainNav = styled.div`
   background: ${({ theme }) => theme.colors.mainNavBackground};
   color: ${({ theme }) => theme.colors.mainNavText};
   padding: ${({ theme }) => theme.nav.padding || '0'} ;
@@ -11,6 +11,7 @@ const StyledMainNav = styled.div`
   box-sizing: border-box;
   z-index: 100;
   display: grid;
+  align-items: center;
   ul {
     list-style: none;
     margin: 0;
@@ -33,4 +34,4 @@ const StyledMainNav = styled.div`
   }
 `;
 
-export default StyledMainNav;
+export default MainNav;

@@ -1,5 +1,5 @@
 import React from 'react';
-import StyledSection from '../styled_components/StyledSection';
+import StyledSection from '../styled_components/Section';
 
 const Services: React.FC = () => {
 

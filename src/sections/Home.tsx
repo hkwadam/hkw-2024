@@ -1,8 +1,9 @@
 import React from 'react';
-import StyledSection from '../styled_components/StyledSection';
-import StyledContainer from '../styled_components/StyledContainer';
-import StyledText from '../styled_components/StyledText';
-import StyledTextColoredPunct from '../styled_components/StyledTextColorPunct';
+import styled from '@emotion/styled';
+import Section from '../styled_components/Section';
+import Container from '../styled_components/Container';
+import Text from '../styled_components/Text';
+import TextColorPunct from '../styled_components/TextColorPunct';
 import NavBar from '../components/NavBar';
 
 interface HomeProps {
@@ -13,30 +14,74 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ homeRef, servicesRef, contactRef }) => {
 
+    const HeroSection = styled(Section)`
+        gap: 16px; 
+        height: 100vh;
+    `;
+    
+    const HeroLeftContainer = styled(Container)`
+        grid-column: 1 / 5;
+        align-items: flex-start;
+    `;
+
+    const HeroRightContainer = styled(Container)`
+        grid-column: 6 / 11;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    `
+
+    const HeroText = styled(Text)`
+        font-size: 1.25rem;
+        line-height: 115%;
+    `
+
+    const HeroBottomContainer = styled(Container)`
+        grid-column: 1 / 13;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 2rem;
+    `
+
+    const HeroHeader = styled(TextColorPunct)`
+        color: #FF354D;
+        font-family: 'PFGrandGothik', sans-serif;
+        font-size: 8.75rem;
+        font-variation-settings: 
+            'wght' 900,
+            'wdth' 150;
+        text-transform: uppercase;
+        line-height: 77.143%;
+        letter-spacing: -7px;
+        span {
+            color: #FDF4E2;
+        }
+    `
+
   return (
     <>
-        <StyledSection columnStart={'1'} columnEnd={'13'} padding={'36px 0'} gap={'16px'}>
-        <NavBar homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} />
-
-            <StyledContainer columnStart={'1'} columnEnd={'5'} padding={'0'} alignItems={'flex-start'}>
-                <StyledText fontSize={'1.25rem'} lineHeight={'115%'}>
+        <HeroSection>
+            <NavBar homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} />
+            <HeroLeftContainer >
+                <HeroText>
                     We are a digital design and marketing studio based in Spokane, Washington.
-                </StyledText>
-            </StyledContainer>
-            <StyledContainer columnStart={'6'} columnEnd={'11'} padding={'0'} flexDirection={'column'} gap={'24px'} alignItems={'flex-start'}>
-                <StyledText fontSize={'1.25rem'} lineHeight={'115%'}>
+                </HeroText>
+            </HeroLeftContainer>
+            <HeroRightContainer>
+                <HeroText>
                     We build unique online experiences and engaging campaigns for non-profits and fun brands. We gravitate to the quirky and give it purpose.
-                </StyledText>
-                <StyledText fontSize={'1.25rem'} lineHeight={'115%'}>
+                </HeroText>
+                <HeroText>
                     For those looking to make a statement, we'd like to help you find your voice.
-                </StyledText>
-            </StyledContainer>
-            <StyledContainer columnStart={'1'} columnEnd={'13'} padding={'0'} alignItems={'center'} justifyContent={'flex-start'}>
-                <StyledTextColoredPunct fontSize={'8.75rem'} fontWeight={'900'} textTransform={'uppercase'} lineHeight={'77.143%'} textColor={'#FF354D'} punctColor={'#FDF4E2'}>
+                </HeroText>
+            </HeroRightContainer>
+            <HeroBottomContainer>
+                <HeroHeader>
                     We're changing everything<span>.</span>
-                </StyledTextColoredPunct>
-            </StyledContainer>
-        </StyledSection>
+                </HeroHeader>
+            </HeroBottomContainer>
+        </HeroSection>
     </>
   );
 };
