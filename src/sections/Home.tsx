@@ -3,12 +3,21 @@ import StyledSection from '../styled_components/StyledSection';
 import StyledContainer from '../styled_components/StyledContainer';
 import StyledText from '../styled_components/StyledText';
 import StyledTextColoredPunct from '../styled_components/StyledTextColorPunct';
+import NavBar from '../components/NavBar';
 
-const Home: React.FC = () => {
+interface HomeProps {
+    homeRef: React.RefObject<HTMLDivElement>;
+    servicesRef: React.RefObject<HTMLDivElement>;
+    contactRef: React.RefObject<HTMLDivElement>;
+}
+
+const Home: React.FC<HomeProps> = ({ homeRef, servicesRef, contactRef }) => {
 
   return (
     <>
         <StyledSection columnStart={'1'} columnEnd={'13'} padding={'36px 0'} gap={'16px'}>
+        <NavBar homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} />
+
             <StyledContainer columnStart={'1'} columnEnd={'5'} padding={'0'} alignItems={'flex-start'}>
                 <StyledText fontSize={'1.25rem'} lineHeight={'115%'}>
                     We are a digital design and marketing studio based in Spokane, Washington.

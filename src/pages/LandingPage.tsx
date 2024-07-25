@@ -15,7 +15,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ homeRef, servicesRef, contact
   return (
     <>
       <div ref={homeRef}></div>
-      <Home />
+      <Home homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} />
       <div ref={servicesRef}></div>
       <Services />
       <div ref={contactRef}></div>

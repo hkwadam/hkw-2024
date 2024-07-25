@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { ThemeProvider } from '@emotion/react'; // allows for theme changes
-import ThemeSelector from './components/ThemeSelector';
-import NavBar from './components/NavBar'; 
+// import ThemeSelector from './components/ThemeSelector';
 import LandingPage from "./pages/LandingPage";
 import {
   BrowserRouter as Router,
@@ -32,7 +31,6 @@ const App: React.FC = () => {
       {/* even though we only have 1 route rn we can still use router for anchor links and it'll set 
       us up well when we move to more than 1 page */}
       <Router> 
-        <NavBar homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} />
         <Routes>
           <Route path="/" element={<LandingPage setTheme={setTheme} homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} />} />
         </Routes>
