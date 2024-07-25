@@ -6,12 +6,6 @@ import { Theme } from '.';
 const GlobalStyles: React.FC = () => (
   <Global
     styles={(theme: Theme) => css`
-      @font-face {
-        font-family: 'GrandGothic';
-        src: url('/src/fonts/PFGrandGothik.otf') format('opentype');
-        font-weight: 100 900;
-        font-stretch: 75% 150%;
-      }
       html {
         font-size: 24px;
         @media (max-width: 1440px) {

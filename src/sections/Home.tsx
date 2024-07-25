@@ -38,7 +38,7 @@ const Home: React.FC<HomeProps> = ({ homeRef, servicesRef, contactRef }) => {
     `
 
     const HeroBottomContainer = styled(Container)`
-        grid-column: 1 / 13;
+        grid-column: 1 / 11;
         flex-direction: column;
         justify-content: flex-end;
         padding-bottom: 2rem;
@@ -46,11 +46,9 @@ const Home: React.FC<HomeProps> = ({ homeRef, servicesRef, contactRef }) => {
 
     const HeroHeader = styled(TextColorPunct)`
         color: #FF354D;
-        font-family: 'PFGrandGothik', sans-serif;
         font-size: 8.75rem;
-        font-variation-settings: 
-            'wght' 900,
-            'wdth' 150;
+        font-family: "pf-grand-gothik-variable", sans-serif;
+        font-variation-settings: "ital" 0, "wdth" 150, "wght" 900;
         text-transform: uppercase;
         line-height: 77.143%;
         letter-spacing: -7px;
