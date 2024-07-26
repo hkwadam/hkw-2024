@@ -7,6 +7,7 @@ import Container from '../styled_components/Container';
 import Form from '../styled_components/Form';
 import FormInputContainer from '../styled_components/FormInputContainer';
 import Label from '../styled_components/Label';
+import TextInput from '../styled_components/TextInput';
 
 const FormBody = styled(Container)`
   background-color: #1F1F1F;
@@ -71,28 +72,28 @@ const ContactForm: React.FC = () => {
                 </RadioContainer>
                 <FormInputContainer>
                     <FormHeader>What's your name?</FormHeader>
-                    <input {...register("name", { required: true })} />
+                    <TextInput {...register("name", { required: true })} />
                     {errors.name && <span>*Required</span>}
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>What organization do you work with?</FormHeader>
-                    <input defaultValue="" {...register("organization")} />
+                    <TextInput defaultValue="" {...register("organization")} />
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>Email</FormHeader>
-                    <input defaultValue="" {...register("email")} />
+                    <TextInput defaultValue="" {...register("email")} />
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>Phone</FormHeader>
-                    <input defaultValue="" {...register("phone")} />
+                    <TextInput defaultValue="" {...register("phone")} />
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>Do you have a website?</FormHeader>
-                    <input defaultValue="" {...register("website")} />
+                    <TextInput defaultValue="" {...register("website")} />
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>Tell us about your project</FormHeader>
-                    <input defaultValue="" {...register("project")} />
+                    <TextInput defaultValue="" {...register("project")} />
                 </FormInputContainer>
                 <input type="submit" />
             </Form>
