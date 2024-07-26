@@ -5,6 +5,7 @@ import Container from '../styled_components/Container';
 import TextColoredPunct from '../styled_components/TextColorPunct';
 import ColoredPunct from '../styled_components/ColoredPunct';
 import Text from '../styled_components/Text';
+import ContactForm from '../components/ContactForm';
 
 const ContactSection = styled(Section)`
   padding: 2rem 0 0 0;
@@ -44,13 +45,6 @@ const FormSubHeader = styled(Text)`
   margin-bottom: 0.5rem;
 `
 
-const FormBody = styled(Container)`
-  background-color: #1F1F1F;
-  border-radius: 1rem;
-  padding: 2.5rem;
-  width: 100%;
-`
-
 const Contact: React.FC = () => {
 
   return (
@@ -61,7 +55,7 @@ const Contact: React.FC = () => {
               Let's talk<ColoredPunct>.</ColoredPunct>
             </LetsTalk>
             <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
-            <FormBody>Form</FormBody>
+            <ContactForm />
           </FormContainer>
         </ContactSection>
     </>
