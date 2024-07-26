@@ -8,8 +8,8 @@ const StyledContainer = styled.div`
   grid-column: 1 / 13;
   display: flex;;
   gap: 0;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 
 export default StyledContainer;

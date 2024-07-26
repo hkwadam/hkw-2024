@@ -25,7 +25,6 @@ const NavBar: React.FC<NavBarProps> = ({ homeRef, servicesRef, contactRef, setSh
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 100%;
-
     span {
       color: #FF354D;
     }

@@ -33,13 +33,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ setTheme, homeRef, servicesRe
   return (
     <>
       <Overlay show={showOverlay} />
+      <div ref={homeRef}></div>
       <Home homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} setShowOverlay={setShowOverlay} />
-      <div ref={servicesRef}>
-        <Services />
-      </div>
-      <div ref={contactRef}>
-        <Contact />
-      </div>
+      <div ref={servicesRef}></div>
+      <Services />
+      <div ref={contactRef}></div>
+      <Contact />
     </>
   );
 };
