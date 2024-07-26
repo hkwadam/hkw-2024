@@ -7,7 +7,7 @@ const Section = styled.div`
   display: grid;
   grid-template-columns: ${({ theme }) => theme.root.gridTemplateColumns};
   grid-column: 1 / 13;
-  gap: ${({ theme }) => theme.root.gap || '0'};
+  gap: ${({ theme }) => theme.root.gap || '1rem'};
   padding: 0;
 `;
 

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 
-const Button = styled.p`
+const Button = styled.button`
     cursor: pointer;
 `;
 

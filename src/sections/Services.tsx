@@ -12,7 +12,6 @@ const Services: React.FC = () => {
   ];
 
   const ServicesSection = styled(Section)`
-    gap: 16px; 
     padding: 5rem 0;
   `;
 

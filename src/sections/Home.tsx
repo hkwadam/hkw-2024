@@ -17,7 +17,6 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ homeRef, servicesRef, contactRef, setShowOverlay }) => {
 
   const HeroSection = styled(Section)`
-    gap: 16px; 
     height: 100vh;
   `;
   
