@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import MainNav from '../styled_components/MainNav';
 import TextColoredPunct from '../styled_components/TextColorPunct';
+import ColoredPunct from '../styled_components/ColoredPunct';
 import Button from '../styled_components/Button';
 
 interface NavBarProps {
@@ -12,23 +13,20 @@ interface NavBarProps {
   setShowOverlay: (show: boolean) => void;
 }
 
+const ContactButton = styled(Button)`
+  position: relative;
+  z-index: 999;
+`
+
+const LetsTalk = styled(TextColoredPunct)`
+  color: #fff;
+  font-family: 'PFGrandGothik', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 100%;
+`
+
 const NavBar: React.FC<NavBarProps> = ({ homeRef, servicesRef, contactRef, setShowOverlay }) => {
-
-  const ContactButton = styled(Button)`
-    position: relative;
-    z-index: 999;
-  `;
-
-  const LetsTalk = styled(TextColoredPunct)`
-    color: #fff;
-    font-family: 'PFGrandGothik', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 100%;
-    span {
-      color: #FF354D;
-    }
-  `;
 
   const handleScroll = (ref: React.RefObject<HTMLDivElement>) => {
     let offset = 100;
@@ -67,7 +65,7 @@ const NavBar: React.FC<NavBarProps> = ({ homeRef, servicesRef, contactRef, setSh
               onMouseLeave={() => setShowOverlay(false)} 
               onClick={() => handleScroll(contactRef)}>
               <LetsTalk>
-                Let's Talk<span>.</span>
+                Let's Talk<ColoredPunct>.</ColoredPunct>
               </LetsTalk>
             </ContactButton>
           </li>

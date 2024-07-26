@@ -9,12 +9,12 @@ interface ThemeSelectorProps {
   setTheme: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ThemeSelector: React.FC<ThemeSelectorProps> = ({ setTheme }) => {
+const SelectContainer = styled(Container)`
+  grid-column: 1 / 13;
+  padding: 1rem 0;
+`
 
-  const SelectContainer = styled(Container)`
-    grid-column: 1 / 13;
-    padding: 16px 0;
-  `
+const ThemeSelector: React.FC<ThemeSelectorProps> = ({ setTheme }) => {
 
   const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTheme(event.target.value);

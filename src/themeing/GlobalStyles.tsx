@@ -32,6 +32,9 @@ const GlobalStyles: React.FC = () => (
       p {
         margin: 0;
       }
+      div {
+        box-sizing: border-box;
+      }
     `}
   />
 );
