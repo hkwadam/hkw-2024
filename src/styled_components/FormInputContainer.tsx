@@ -6,7 +6,10 @@ const FormInputContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: transparent;
-  gap: 1rem;
+  &:focus-within label {
+    color: #fff;
+    font-size: 0.75rem;
+  }
 `;
 
 export default FormInputContainer;

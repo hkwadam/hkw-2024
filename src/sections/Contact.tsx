@@ -10,16 +10,22 @@ import ContactForm from '../components/ContactForm';
 const ContactSection = styled(Section)`
   padding: 2rem 0 0 0;
 `
-const FormContainer = styled(Container)`
-  background-color: white;
-  grid-column: 1 / 13;
-  border-radius: 2.5rem 2.5rem 0 0;
-  padding: 6.5rem 3.75rem;
+const FormHeaderContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / 7;
   gap: 2rem;
+`
+const FormContainer = styled(Container)`
+  background-color: #1F1F1F;
+  grid-column: 7 / 13;
+  border-radius: 2.5rem 2.5rem 0 0;
+  padding: 2.5rem;
+  gap: 2.5rem;
   flex-direction: column;
 `
 const LetsTalk = styled(TextColoredPunct)`
-  color: #171717;
+  color: #FDF4E2;
   font-family: "pf-grand-gothik-variable", sans-serif;
   font-variation-settings: "ital" 0, "wdth" 150, "wght" 900;
   font-size: 6rem;
@@ -38,11 +44,9 @@ const LetsTalk = styled(TextColoredPunct)`
     margin-bottom: -0.25em;
   }
 `
-
 const FormSubHeader = styled(Text)`
   font-size: 1.625rem;
-  color: #454545;
-  margin-bottom: 0.5rem;
+  color: #fff;
 `
 
 const Contact: React.FC = () => {
@@ -50,11 +54,13 @@ const Contact: React.FC = () => {
   return (
     <>
         <ContactSection>
-          <FormContainer>
+          <FormHeaderContainer>
             <LetsTalk>
               Let's talk<ColoredPunct>.</ColoredPunct>
             </LetsTalk>
             <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
+          </FormHeaderContainer>
+          <FormContainer>
             <ContactForm />
           </FormContainer>
         </ContactSection>

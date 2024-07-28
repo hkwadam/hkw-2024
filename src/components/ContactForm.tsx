@@ -8,26 +8,25 @@ import Form from '../styled_components/Form';
 import FormInputContainer from '../styled_components/FormInputContainer';
 import Label from '../styled_components/Label';
 import TextInput from '../styled_components/TextInput';
-
-const FormBody = styled(Container)`
-  background-color: #1F1F1F;
-  border-radius: 1rem;
-  padding: 2.5rem;
-  width: 100%;
-  flex-direction: column;
-`
+import Button from '../styled_components/Button';
 
 const FormHeader = styled(Label)`
-  color: #fff;
+  color: #9E9E9E;
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 450;
 `
-
 const RadioContainer = styled(Container)`
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     background-color: transparent;
+`
+const SubmitButton = styled(Button)`
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #FDF4E2;
+    padding: 1.5rem;
+    border-radius: 2rem;
 `
 type Inputs = {
     productType: string
@@ -55,7 +54,7 @@ const ContactForm: React.FC = () => {
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
     return (
-        <FormBody>
+        <>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormHeader>Project Type</FormHeader>
                 <RadioContainer>
@@ -95,9 +94,9 @@ const ContactForm: React.FC = () => {
                     <FormHeader>Tell us about your project</FormHeader>
                     <TextInput defaultValue="" {...register("project")} />
                 </FormInputContainer>
-                <input type="submit" />
+                <SubmitButton type="submit">Send your message</SubmitButton>
             </Form>
-        </FormBody>
+        </>
     )
 }
 
