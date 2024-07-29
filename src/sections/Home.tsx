@@ -16,7 +16,7 @@ interface HomeProps {
 }
 
 const HeroSection = styled(Section)`
-  height: 100vh;
+  min-height: 100vh;
 `
   
 const HeroLeftContainer = styled(Container)`
@@ -52,6 +52,7 @@ const HeroHeader = styled(TextColorPunct)`
   text-transform: uppercase;
   line-height: 6.75rem;
   letter-spacing: -0.4375rem;
+  margin-top: 2rem;
 `
 
 const WhitePeriod = styled(ColoredPunct)`

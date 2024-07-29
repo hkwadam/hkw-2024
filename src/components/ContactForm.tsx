@@ -70,13 +70,13 @@ const ContactForm: React.FC = () => {
                 {/* TODO: format radio buttons right  */}
                 <RadioContainer>
                     {productTypeRadios.map((type) => (
-                        <RadioButton>
+                        <RadioButton key={type}>
                             <input
                                 type="radio"
                                 value={type.toLowerCase()}
                                 {...register("productType")}
                             />
-                            <label key={type}>{type}</label>
+                            <label>{type}</label>
                         </RadioButton>
                     ))}
                 </RadioContainer>
