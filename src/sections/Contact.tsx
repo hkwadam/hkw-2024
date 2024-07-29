@@ -9,12 +9,20 @@ import ContactForm from '../components/ContactForm';
 
 const ContactSection = styled(Section)`
   padding: 5rem 0;
+  @media (max-width: 600px) {
+    padding: 48px 0;
+  }
 `
 const FormHeaderContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   grid-column: 1 / 7;
   gap: 2rem;
+  @media (max-width: 600px) {
+    grid-column: 1 / 13;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
 `
 const FormContainer = styled(Container)`
   background-color: #1F1F1F;
@@ -23,6 +31,10 @@ const FormContainer = styled(Container)`
   padding: 2.5rem;
   gap: 2.5rem;
   flex-direction: column;
+  @media (max-width: 600px) {
+    grid-column: 1 / 13;
+    padding: 40px 20px;
+  }
 `
 const LetsTalk = styled(TextColoredPunct)`
   color: #FDF4E2;
@@ -32,6 +44,13 @@ const LetsTalk = styled(TextColoredPunct)`
   line-height: 100%;
   letter-spacing: -0.3rem;
   text-transform: uppercase;
+  @media (max-width: 600px) {
+    font-size: 32px;
+    letter-spacing: -1.6px;
+    .hide-on-mobile {
+    display: none;
+    }
+  }
   ::before, ::after {
     content: '';
     display: block;
@@ -47,6 +66,10 @@ const LetsTalk = styled(TextColoredPunct)`
 const FormSubHeader = styled(Text)`
   font-size: 1.625rem;
   color: #fff;
+  @media (max-width: 600px) {
+    font-size: 16px;
+    font-weight: 500;
+  }
 `
 
 const Contact: React.FC = () => {
@@ -56,7 +79,7 @@ const Contact: React.FC = () => {
         <ContactSection>
           <FormHeaderContainer>
             <LetsTalk>
-              Let's <br></br>talk<ColoredPunct>.</ColoredPunct>
+              Let's <br className="hide-on-mobile"></br>talk<ColoredPunct>.</ColoredPunct>
             </LetsTalk>
             <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
           </FormHeaderContainer>

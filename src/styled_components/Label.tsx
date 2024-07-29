@@ -7,6 +7,10 @@ const Label = styled.label`
   font-weight: 400;
   line-height: 1.25rem;
   transition: color 0.4s ease, font-size 0.4s ease;
+  @media (max-width: 600px) {
+    font-size: 18px;
+    font-weight: 450;
+  }
 
 `;
 

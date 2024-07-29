@@ -21,6 +21,10 @@ const RadioContainer = styled(Container)`
     gap: 1rem 0;
     flex-wrap: wrap;
     background-color: transparent;
+    @media (max-width: 600px) {
+        margin-bottom: 40px;
+        margin-top: 16px;
+    }
 `
 
 const SubmitButton = styled(Button)`

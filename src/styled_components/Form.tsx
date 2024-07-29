@@ -7,6 +7,9 @@ const Form = styled.form`
   background-color: transparent;
   flex-direction: column;
   gap: 2rem;
+  @media (max-width: 600px) {
+    gap: 0;
+  }
 `;
 
 export default Form;
