@@ -69,6 +69,9 @@ const HeroBottomContainer = styled(Container)`
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 2rem;
+  @media (max-width: 600px) {
+    padding: 0;
+  }
 `
 
 const HeroHeader = styled(TextColorPunct)`
@@ -84,6 +87,7 @@ const HeroHeader = styled(TextColorPunct)`
     font-size: 38px;
     line-height: 29px;
     letter-spacing: -1.9px;
+    margin: 0;
   }
 `
 
