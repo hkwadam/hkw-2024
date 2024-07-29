@@ -34,6 +34,10 @@ const ServicesRight = styled(Container)`
   gap: 1.75rem;
   @media (max-width: 1080px) {
     grid-column: 1 / 13;
+    gap: 30px;
+  }
+  @media (max-width: 600px) {
+    gap: 16px;
   }
 `
 
@@ -58,18 +62,18 @@ const ServicesHeader = styled(Text)`
 
 const ServiceText = styled(Text)`
   color: rgba(255, 255, 255, 0.20);
-  font-size: 4rem;
+  font-size: 64px;
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 500;
   font-style: normal;
   letter-spacing: -3.2px;
+  line-height: unset;
   @media (max-width: 1080px) {
-    font-size: 64px;
+    font-size: 46px;
     gap: 30px;
-    line-height: unset;
   }
   @media (max-width: 600px) {
-    font-size: 32px;
+    font-size: 64px;
     letter-spacing: -1.6px;
     gap: 16px;
   }

@@ -9,9 +9,9 @@ const baseTheme: Partial<Theme> = {
     gap: '0 16px',
   },
   nav: {
-    padding: '36px 0',
+    padding: '0',
     mobilePadding: '20px 0 0 0',
-    tabletPadding: '20px 0',
+    tabletPadding: '24px 0',
     buttonBackground: 'transparent',
     buttonColor: '#fff',
     buttonPadding: '0',

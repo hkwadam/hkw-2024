@@ -24,18 +24,20 @@ const RadioButton = styled.div`
         border-radius: 3rem;
         background-color: #292929;
         color: #fff;
-        font-size: 16px;
+        font-size: 1rem;
+        @media (max-width: 1080px) {
+            font-size: 1.25rem;
+        }
     }  
     input[type="radio"]:checked + label {
         color: #1F1F1F;
         background: #FDF4E2;
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1080px) {
         label {
             background: linear-gradient(#292929 50%, #fff 50%);
             background-repeat: repeat;
             background-size: 100% 200%;
-            font-size: 20px;
         }
         input[type="radio"]:hover + label {
             color: #1F1F1F;

@@ -71,12 +71,15 @@ const HeroText = styled(Text)`
   font-size: 1.25rem;
   line-height: 115%;
   @media (max-width: 1080px) {
-    font-size: 16px;
+    font-size: 1rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 1.25rem;
   }
 `
 
 const HeroBottomContainer = styled(Container)`
-  grid-column: 1 / 11;
+  grid-column: 1 / 13;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 2rem;
@@ -87,7 +90,7 @@ const HeroBottomContainer = styled(Container)`
 
 const HeroHeader = styled(TextColorPunct)`
   color: #FF1A35;
-  font-size: 8.75rem;
+  font-size: 7rem;
   font-family: "pf-grand-gothik-variable", sans-serif;
   font-variation-settings: "ital" 0, "wdth" 150, "wght" 900;
   text-transform: uppercase;
@@ -95,9 +98,9 @@ const HeroHeader = styled(TextColorPunct)`
   letter-spacing: -0.4375rem;
   margin-top: 2rem;
   @media (max-width: 1080px) {
-    font-size: 89px;
-    line-height: 66px;
-    letter-spacing: -4.45px;
+    font-size: 5rem;
+    line-height: 4.125rem;
+    letter-spacing: -0.25rem;
     margin: 0;
   }
   @media (max-width: 600px) {
@@ -135,7 +138,7 @@ const Home: React.FC<HomeProps> = ({ homeRef, servicesRef, contactRef, setShowOv
           </HeroTextContainer>
           <HeroBottomContainer>
             <HeroHeader>
-              We're changing everything<WhitePeriod>.</WhitePeriod>
+              We're<br></br>changing<br></br>everything<WhitePeriod>.</WhitePeriod>
             </HeroHeader>
           </HeroBottomContainer>
         </HeroSansNav>

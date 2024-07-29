@@ -8,7 +8,7 @@ import Text from '../styled_components/Text';
 import ContactForm from '../components/ContactForm';
 
 const ContactSection = styled(Section)`
-  padding: 5rem 0;
+  padding: 5rem 0 3rem 0;
   @media (max-width: 600px) {
     padding: 48px 0;
   }
@@ -18,10 +18,12 @@ const FormHeaderContainer = styled(Container)`
   flex-direction: column;
   grid-column: 1 / 7;
   gap: 2rem;
-  @media (max-width: 600px) {
+  @media (max-width: 1080px) {
     grid-column: 1 / 13;
-    gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 600px) {
+    margin-bottom: 2rem;
   }
 `
 const FormContainer = styled(Container)`
@@ -31,7 +33,7 @@ const FormContainer = styled(Container)`
   padding: 2.5rem;
   gap: 2.5rem;
   flex-direction: column;
-  @media (max-width: 600px) {
+  @media (max-width: 1080px) {
     grid-column: 1 / 13;
     padding: 40px 20px;
   }
@@ -44,12 +46,16 @@ const LetsTalk = styled(TextColoredPunct)`
   line-height: 100%;
   letter-spacing: -0.3rem;
   text-transform: uppercase;
+  @media (max-width: 1080px) {
+    font-size: 4.375rem;
+    letter-spacing: -0.22rem;
+    .hide-on-mobile {
+      display: none;
+    }
+  }
   @media (max-width: 600px) {
     font-size: 32px;
     letter-spacing: -1.6px;
-    .hide-on-mobile {
-    display: none;
-    }
   }
   ::before, ::after {
     content: '';

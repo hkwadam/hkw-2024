@@ -9,6 +9,9 @@ const GlobalStyles: React.FC = () => (
     styles={(theme: Theme) => css`
       html {
         font-size: 24px;
+        @media (min-width: 1441px) {
+          font-size: 20px;
+        }
         @media (max-width: 1440px) {
           font-size: 16px;
         }

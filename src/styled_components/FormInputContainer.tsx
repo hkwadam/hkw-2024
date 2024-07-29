@@ -10,7 +10,7 @@ const FormInputContainer = styled.div`
     color: #fff;
     font-size: 0.75rem;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 1080px) {
     margin-bottom: 40px;
   }
 `;

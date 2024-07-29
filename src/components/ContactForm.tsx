@@ -21,9 +21,13 @@ const RadioContainer = styled(Container)`
     gap: 1rem 0;
     flex-wrap: wrap;
     background-color: transparent;
+    @media (max-width: 1080px) {
+        margin-bottom: 2.5rem;
+        margin-top: 01rem;
+    }
     @media (max-width: 600px) {
-        margin-bottom: 40px;
-        margin-top: 16px;
+        margin-bottom: 3.33rem;
+        margin-top: 1.25rem;
     }
 `
 
@@ -37,6 +41,7 @@ const SubmitButton = styled(Button)`
     border: 1px solid #FDF4E2;
     padding: 1.5rem;
     border-radius: 3rem;
+    font-size: 1.25rem;
     &:hover {
         color: #1F1F1F;
         background-position: 0 100%;
