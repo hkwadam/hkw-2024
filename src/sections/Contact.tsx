@@ -8,7 +8,7 @@ import Text from '../styled_components/Text';
 import ContactForm from '../components/ContactForm';
 
 const ContactSection = styled(Section)`
-  padding: 2rem 0 0 0;
+  padding: 5rem 0;
 `
 const FormHeaderContainer = styled(Container)`
   display: flex;
@@ -19,7 +19,7 @@ const FormHeaderContainer = styled(Container)`
 const FormContainer = styled(Container)`
   background-color: #1F1F1F;
   grid-column: 7 / 13;
-  border-radius: 2.5rem 2.5rem 0 0;
+  border-radius: 2.5rem;
   padding: 2.5rem;
   gap: 2.5rem;
   flex-direction: column;
@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
         <ContactSection>
           <FormHeaderContainer>
             <LetsTalk>
-              Let's talk<ColoredPunct>.</ColoredPunct>
+              Let's <br></br>talk<ColoredPunct>.</ColoredPunct>
             </LetsTalk>
             <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
           </FormHeaderContainer>

@@ -9,6 +9,7 @@ import FormInputContainer from '../styled_components/FormInputContainer';
 import Label from '../styled_components/Label';
 import TextInput from '../styled_components/TextInput';
 import Button from '../styled_components/Button';
+import RadioButton from '../styled_components/RadioButton';
 
 const FormHeader = styled(Label)`
   color: #9E9E9E;
@@ -17,16 +18,25 @@ const FormHeader = styled(Label)`
 `
 const RadioContainer = styled(Container)`
     display: flex;
-    gap: 1rem;
+    gap: 1rem 0;
     flex-wrap: wrap;
     background-color: transparent;
 `
+
 const SubmitButton = styled(Button)`
     background-color: transparent;
-    color: #fff;
+    background: linear-gradient(transparent 50%, #FDF4E2 50%);
+    background-repeat: repeat;
+    background-size: 100% 200%;
+    transition: all 0.3s linear;
+    color: #FDF4E2;
     border: 1px solid #FDF4E2;
     padding: 1.5rem;
-    border-radius: 2rem;
+    border-radius: 3rem;
+    &:hover {
+        color: #1F1F1F;
+        background-position: 0 100%;
+    }
 `
 type Inputs = {
     productType: string
@@ -57,16 +67,17 @@ const ContactForm: React.FC = () => {
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormHeader>Project Type</FormHeader>
+                {/* TODO: format radio buttons right  */}
                 <RadioContainer>
                     {productTypeRadios.map((type) => (
-                        <label key={type}>
+                        <RadioButton>
                             <input
                                 type="radio"
                                 value={type.toLowerCase()}
                                 {...register("productType")}
                             />
-                            {type}
-                        </label>
+                            <label key={type}>{type}</label>
+                        </RadioButton>
                     ))}
                 </RadioContainer>
                 <FormInputContainer>
