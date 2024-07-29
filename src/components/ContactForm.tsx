@@ -90,7 +90,6 @@ const ContactForm: React.FC = () => {
             .catch((error) => {
                 console.error("error", error)
             })
-
     }
 
     return (
@@ -111,7 +110,7 @@ const ContactForm: React.FC = () => {
                 </RadioContainer>
                 <FormInputContainer>
                     <FormHeader>What's your name?</FormHeader>
-                    <TextInput {...register("name", { required: true })} />
+                    <TextInput defaultValue="" {...register("name", { required: true })} />
                     {errors.name && <span>Required</span>}
                 </FormInputContainer>
                 <FormInputContainer>
@@ -141,7 +140,8 @@ const ContactForm: React.FC = () => {
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>Tell us about your project</FormHeader>
-                    <TextInput defaultValue="" {...register("project")} />
+                    <TextInput defaultValue="" {...register("project", { required: true })} />
+                    {errors.project && <span>Required</span>}
                 </FormInputContainer>
                 <SubmitButton type="submit">Send your message</SubmitButton>
             </Form>
