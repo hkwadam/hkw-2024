@@ -558,4 +558,4 @@ Error generating stack: `+l.message+`
       div {
         box-sizing: border-box;
       }
-    `}),Wv={dark:Uv,light:Bv},Qv=()=>{const[e]=O.useState("dark"),t=O.useRef(null);return Z.jsxs(N1,{theme:Wv[e],children:[Z.jsx(Hv,{}),Z.jsx(Vv,{children:Z.jsx($v,{children:Z.jsx(Jp,{path:"/",element:Z.jsx(tv,{contactRef:t})})})})]})};Zo.createRoot(document.getElementById("root")).render(Z.jsx(He.StrictMode,{children:Z.jsx(Qv,{})}));
+    `}),Wv={dark:Uv,light:Bv},Qv=()=>{const[e]=O.useState("dark"),t=O.useRef(null);return Z.jsxs(N1,{theme:Wv[e],children:[Z.jsx(Hv,{}),Z.jsx(Vv,{basename:"/hkw-2024/",children:Z.jsx($v,{children:Z.jsx(Jp,{path:"/",element:Z.jsx(tv,{contactRef:t})})})})]})};Zo.createRoot(document.getElementById("root")).render(Z.jsx(He.StrictMode,{children:Z.jsx(Qv,{})}));

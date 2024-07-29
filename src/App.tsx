@@ -23,7 +23,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={themeMap[theme]}>
       <GlobalStyles />
-      <Router> 
+      <Router basename={"/hkw-2024/"}> 
         <Routes>
           <Route path="/" element={<LandingPage contactRef={contactRef} />} />
         </Routes>
