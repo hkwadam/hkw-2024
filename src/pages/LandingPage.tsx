@@ -25,6 +25,9 @@ const Overlay = styled.div<{ show: boolean }>`
   z-index: 1;
   opacity: ${props => (props.show ? '1' : '0')};
   pointer-events: ${props => (props.show ? 'auto' : 'none')};
+  @media (max-width: 1080px) {
+    display: none;
+  }
 `;
 
 const LandingPage: React.FC<LandingPageProps> = ({ setTheme, homeRef, servicesRef, contactRef }) => {

@@ -5,6 +5,9 @@ const MainNav = styled.div`
   background: ${({ theme }) => theme.colors.mainNavBackground};
   color: ${({ theme }) => theme.colors.mainNavText};
   padding: ${({ theme }) => theme.nav.padding || '0'} ;
+  @media (max-width: 600px) {
+    padding: ${({ theme }) => theme.nav.mobilePadding || '0'} ;
+  }
   grid-column-start: 1;
   grid-column-end: 13;
   width: 100%;

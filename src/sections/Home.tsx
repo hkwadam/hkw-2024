@@ -17,8 +17,32 @@ interface HomeProps {
 
 const HeroSection = styled(Section)`
   min-height: 100vh;
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
-  
+
+const HeroSansNav = styled(Section)`
+  height: 100%;
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 0;
+  }
+`
+
+const HeroTextContainer = styled(Section)`
+  height: 100%;
+  @media (max-width: 600px) {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 56px;
+  }
+` 
+
 const HeroLeftContainer = styled(Container)`
   grid-column: 1 / 5;
   align-items: flex-start;
@@ -30,6 +54,9 @@ const HeroRightContainer = styled(Container)`
   gap: 24px;
   align-items: flex-start;
   justify-content: flex-start;
+  @media (max-width: 600px) {
+    gap: 16px;
+  }
 `
 
 const HeroText = styled(Text)`
@@ -53,6 +80,11 @@ const HeroHeader = styled(TextColorPunct)`
   line-height: 6.75rem;
   letter-spacing: -0.4375rem;
   margin-top: 2rem;
+  @media (max-width: 600px) {
+    font-size: 38px;
+    line-height: 29px;
+    letter-spacing: -1.9px;
+  }
 `
 
 const WhitePeriod = styled(ColoredPunct)`
@@ -65,24 +97,28 @@ const Home: React.FC<HomeProps> = ({ homeRef, servicesRef, contactRef, setShowOv
     <>
       <HeroSection>
         <NavBar homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} setShowOverlay={setShowOverlay} />
-        <HeroLeftContainer>
-          <HeroText>
-            We are a digital design and marketing studio based in Spokane, Washington.
-          </HeroText>
-        </HeroLeftContainer>
-        <HeroRightContainer>
-          <HeroText>
-            We build unique online experiences and engaging campaigns for non-profits and fun brands. We gravitate to the quirky and give it purpose.
-          </HeroText>
-          <HeroText>
-            For those looking to make a statement, we'd like to help you find your voice.
-          </HeroText>
-        </HeroRightContainer>
-        <HeroBottomContainer>
-          <HeroHeader>
-            We're changing everything<WhitePeriod>.</WhitePeriod>
-          </HeroHeader>
-        </HeroBottomContainer>
+        <HeroSansNav>
+          <HeroTextContainer>
+            <HeroLeftContainer>
+              <HeroText>
+                We are a digital design and marketing studio based in Spokane, Washington.
+              </HeroText>
+            </HeroLeftContainer>
+            <HeroRightContainer>
+              <HeroText>
+                We build unique online experiences and engaging campaigns for non-profits and fun brands. We gravitate to the quirky and give it purpose.
+              </HeroText>
+              <HeroText>
+                For those looking to make a statement, we'd like to help you find your voice.
+              </HeroText>
+            </HeroRightContainer>
+          </HeroTextContainer>
+          <HeroBottomContainer>
+            <HeroHeader>
+              We're changing everything<WhitePeriod>.</WhitePeriod>
+            </HeroHeader>
+          </HeroBottomContainer>
+        </HeroSansNav>
       </HeroSection>
     </>
   );

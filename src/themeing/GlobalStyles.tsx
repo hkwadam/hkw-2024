@@ -28,6 +28,9 @@ const GlobalStyles: React.FC = () => (
         gap: ${theme.root.gap};
         grid-template-columns: ${theme.root.gridTemplateColumns};
         padding: ${theme.root.padding};
+        @media (max-width: 600px) {
+            padding: ${theme.root.mobilePadding};
+        }
       }
       p {
         margin: 0;

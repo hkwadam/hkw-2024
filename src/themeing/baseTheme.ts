@@ -3,11 +3,13 @@ import { Theme } from './index';
 const baseTheme: Partial<Theme> = {
   root: {
     padding: '0 60px',
+    mobilePadding: '0 20px',
     gridTemplateColumns: 'repeat( 12, 1fr)',
     gap: '0 16px',
   },
   nav: {
     padding: '36px 0',
+    mobilePadding: '20px 0 0 0',
     buttonBackground: 'transparent',
     buttonColor: '#fff',
     buttonPadding: '0',
