@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 
 const ColoredPunct = styled.span`
-    color: #FF354D;
+    color: #FF1A35;
 `;
 
 export default ColoredPunct;

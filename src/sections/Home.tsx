@@ -17,7 +17,7 @@ interface HomeProps {
 
 const HeroSection = styled(Section)`
   min-height: 100vh;
-  @media (max-width: 600px) {
+  @media (max-width: 1080px) {
     display: flex;
     flex-direction: column;
   }
@@ -25,18 +25,20 @@ const HeroSection = styled(Section)`
 
 const HeroSansNav = styled(Section)`
   height: 100%;
+  @media (max-width: 1080px) {
+    padding: 48px 0;
+  }
   @media (max-width: 600px) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 48px 0;
   }
 `
 
 const HeroTextContainer = styled(Section)`
   height: 100%;
   @media (max-width: 600px) {
-  display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 56px;
@@ -46,6 +48,9 @@ const HeroTextContainer = styled(Section)`
 const HeroLeftContainer = styled(Container)`
   grid-column: 1 / 5;
   align-items: flex-start;
+  @media (max-width: 1080px) {
+    grid-column: 1 / 6;
+  }
 `
 
 const HeroRightContainer = styled(Container)`
@@ -54,6 +59,9 @@ const HeroRightContainer = styled(Container)`
   gap: 24px;
   align-items: flex-start;
   justify-content: flex-start;
+  @media (max-width: 1080px) {
+    grid-column: 7 / 13;
+  }
   @media (max-width: 600px) {
     gap: 16px;
   }
@@ -62,6 +70,9 @@ const HeroRightContainer = styled(Container)`
 const HeroText = styled(Text)`
   font-size: 1.25rem;
   line-height: 115%;
+  @media (max-width: 1080px) {
+    font-size: 16px;
+  }
 `
 
 const HeroBottomContainer = styled(Container)`
@@ -75,7 +86,7 @@ const HeroBottomContainer = styled(Container)`
 `
 
 const HeroHeader = styled(TextColorPunct)`
-  color: #FF354D;
+  color: #FF1A35;
   font-size: 8.75rem;
   font-family: "pf-grand-gothik-variable", sans-serif;
   font-variation-settings: "ital" 0, "wdth" 150, "wght" 900;
@@ -83,11 +94,16 @@ const HeroHeader = styled(TextColorPunct)`
   line-height: 6.75rem;
   letter-spacing: -0.4375rem;
   margin-top: 2rem;
+  @media (max-width: 1080px) {
+    font-size: 89px;
+    line-height: 66px;
+    letter-spacing: -4.45px;
+    margin: 0;
+  }
   @media (max-width: 600px) {
     font-size: 38px;
     line-height: 29px;
     letter-spacing: -1.9px;
-    margin: 0;
   }
 `
 

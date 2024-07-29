@@ -2,7 +2,8 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
 import { Theme } from '.';
-
+// TODO: figure out how to make the text fit for tablet better its not super responsive
+// for example see the were changing everything header
 const GlobalStyles: React.FC = () => (
   <Global
     styles={(theme: Theme) => css`
@@ -28,6 +29,9 @@ const GlobalStyles: React.FC = () => (
         gap: ${theme.root.gap};
         grid-template-columns: ${theme.root.gridTemplateColumns};
         padding: ${theme.root.padding};
+        @media (max-width: 1080px) {
+            padding: ${theme.root.tabletPadding};
+        }
         @media (max-width: 600px) {
             padding: ${theme.root.mobilePadding};
         }

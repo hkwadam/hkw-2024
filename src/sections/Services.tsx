@@ -11,13 +11,16 @@ const services = [
 
 const ServicesSection = styled(Section)`
   padding: 5rem 0;
-  @media (max-width: 600px) {
+  @media (max-width: 1080px) {
     padding: 48px 0;
   }
 `
 const ServicesLeft = styled(Container)`
   grid-column: 1 / 7;
   justify-content: flex-start;
+  @media (max-width: 1080px) {
+    margin-bottom: 40px;
+  }
   @media (max-width: 600px) {
     grid-column: 1 / 13;
     margin-bottom: 24px;
@@ -29,7 +32,7 @@ const ServicesRight = styled(Container)`
   justify-content: flex-start;
   flex-direction: column;
   gap: 1.75rem;
-  @media (max-width: 600px) {
+  @media (max-width: 1080px) {
     grid-column: 1 / 13;
   }
 `
@@ -43,6 +46,10 @@ const ServicesHeader = styled(Text)`
   font-weight: 900;
   letter-spacing: -2px;
   text-transform: uppercase;
+  @media (max-width: 1080px) {
+    font-size: 40px;
+    letter-spacing: -2px;
+  }
   @media (max-width: 600px) {
     font-size: 20px;
     letter-spacing: -1px;
@@ -56,10 +63,14 @@ const ServiceText = styled(Text)`
   font-weight: 500;
   font-style: normal;
   letter-spacing: -3.2px;
+  @media (max-width: 1080px) {
+    font-size: 64px;
+    gap: 30px;
+    line-height: unset;
+  }
   @media (max-width: 600px) {
     font-size: 32px;
     letter-spacing: -1.6px;
-    line-height: unset;
     gap: 16px;
   }
   ::before, ::after {

@@ -5,6 +5,9 @@ const MainNav = styled.div`
   background: ${({ theme }) => theme.colors.mainNavBackground};
   color: ${({ theme }) => theme.colors.mainNavText};
   padding: ${({ theme }) => theme.nav.padding || '0'} ;
+  @media (max-width: 1080px) {
+    padding: ${({ theme }) => theme.nav.tabletPadding || '0'} ;
+  }
   @media (max-width: 600px) {
     padding: ${({ theme }) => theme.nav.mobilePadding || '0'} ;
   }

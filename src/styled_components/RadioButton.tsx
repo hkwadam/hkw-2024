@@ -30,7 +30,7 @@ const RadioButton = styled.div`
         color: #1F1F1F;
         background: #FDF4E2;
     }
-    @media (min-width: 600px) {
+    @media (min-width: 1200px) {
         label {
             background: linear-gradient(#292929 50%, #fff 50%);
             background-repeat: repeat;
