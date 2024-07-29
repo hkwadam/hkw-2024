@@ -9,8 +9,6 @@ import ColoredPunct from '../styled_components/ColoredPunct';
 import NavBar from '../components/NavBar';
 
 interface HomeProps {
-  homeRef: React.RefObject<HTMLDivElement>;
-  servicesRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
   setShowOverlay: (show: boolean) => void;
 }
@@ -114,12 +112,12 @@ const WhitePeriod = styled(ColoredPunct)`
   color: #FDF4E2;
 `
 
-const Home: React.FC<HomeProps> = ({ homeRef, servicesRef, contactRef, setShowOverlay }) => {
+const Home: React.FC<HomeProps> = ({ contactRef, setShowOverlay }) => {
 
   return (
     <>
       <HeroSection>
-        <NavBar homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} setShowOverlay={setShowOverlay} />
+        <NavBar contactRef={contactRef} setShowOverlay={setShowOverlay} />
         <HeroSansNav>
           <HeroTextContainer>
             <HeroLeftContainer>

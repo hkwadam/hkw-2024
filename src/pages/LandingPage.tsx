@@ -6,9 +6,6 @@ import Services from "../sections/Services";
 import Contact from "../sections/Contact";
 
 interface LandingPageProps {
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
-  homeRef: React.RefObject<HTMLDivElement>;
-  servicesRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
 }
 
@@ -30,15 +27,15 @@ const Overlay = styled.div<{ show: boolean }>`
   }
 `;
 
-const LandingPage: React.FC<LandingPageProps> = ({ setTheme, homeRef, servicesRef, contactRef }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ contactRef }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   return (
     <>
       <Overlay show={showOverlay} />
-      <div ref={homeRef}></div>
-      <Home homeRef={homeRef} servicesRef={servicesRef} contactRef={contactRef} setShowOverlay={setShowOverlay} />
-      <div ref={servicesRef}></div>
+      <div></div>
+      <Home contactRef={contactRef} setShowOverlay={setShowOverlay} />
+      <div></div>
       <Services />
       <div ref={contactRef}></div>
       <Contact />
