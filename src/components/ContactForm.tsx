@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { useForm, SubmitHandler } from "react-hook-form"
+import emailjs from '@emailjs/browser';
 // https://react-hook-form.com/get-started
 import Container from '../styled_components/Container';
 import Form from '../styled_components/Form';
@@ -70,13 +71,32 @@ const ContactForm: React.FC = () => {
         'Products', 'Print', 'Campaigns', 'Marketing', 'SEO', 'Analytics'
     ];
 
-    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<Inputs> = (data) => {
+        const templateParams = {
+            from_name: data.name,
+            from_email: data.email,
+            product_type: data.productType,
+            organizatoin: data.organization,
+            phone: data.phone,
+            website: data.website,
+            project: data.project
+        };
+
+        emailjs 
+            .send('HKW_contact_form', 'contact_form', templateParams, {publicKey: 'SU5SXRijMIg8MP5Kx',})
+            .then(() => {
+                console.log('email sent');
+            })
+            .catch((error) => {
+                console.error("error", error)
+            })
+
+    }
 
     return (
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormHeader>Project Type</FormHeader>
-                {/* TODO: format radio buttons right  */}
                 <RadioContainer>
                     {productTypeRadios.map((type) => (
                         <RadioButton key={type}>
@@ -92,7 +112,7 @@ const ContactForm: React.FC = () => {
                 <FormInputContainer>
                     <FormHeader>What's your name?</FormHeader>
                     <TextInput {...register("name", { required: true })} />
-                    {errors.name && <span>*Required</span>}
+                    {errors.name && <span>Required</span>}
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>What organization do you work with?</FormHeader>
@@ -100,7 +120,16 @@ const ContactForm: React.FC = () => {
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>Email</FormHeader>
-                    <TextInput defaultValue="" {...register("email")} />
+                    <TextInput defaultValue=""                         
+                    {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                            value: /\S+@\S+\.\S+/,
+                            message: "Entered value does not match email format"
+                        }
+                    })}
+                    aria-invalid={errors.email ? "true" : "false"} />
+                    {errors.email && <span>Entered value does not match email format</span>}
                 </FormInputContainer>
                 <FormInputContainer>
                     <FormHeader>Phone</FormHeader>
