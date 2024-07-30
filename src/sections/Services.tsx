@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import Section from '../styled_components/Section';
 import Container from '../styled_components/Container';
@@ -18,6 +18,7 @@ const ServicesSection = styled(Section)`
 const ServicesLeft = styled(Container)`
   grid-column: 1 / 6;
   justify-content: flex-start;
+  position: relative;
   @media (max-width: 1080px) {
     margin-bottom: 40px;
   }
@@ -92,28 +93,61 @@ const ServiceText = styled(Text)`
   ::after {
     margin-bottom: -0.25em;
   }
-  :hover {
-    color: #fff;
-    transform: translateX(1.5rem);
-  }
   transition: color 0.4s ease, transform 0.4s ease;
+  &.active {
+    color: white;
+  }
 `
 
 const Services: React.FC = () => {
+  const headerRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = headerRef.current;
+      if (!header) return;
+
+      const headerRect = header.getBoundingClientRect();
+      const serviceElements = document.querySelectorAll('.service-text');
+      
+      let closest = null;
+      let closestDistance = Infinity;
+
+      serviceElements.forEach(el => {
+        const elRect = el.getBoundingClientRect();
+        const distance = Math.abs(headerRect.top - elRect.top);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closest = el;
+        }
+      });
+
+      serviceElements.forEach(el => el.classList.remove('active'));
+      if (closest) {
+        closest.classList.add('active');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <>
-        <ServicesSection>
-          <ServicesLeft>
-            <ServicesHeader>services</ServicesHeader>
-          </ServicesLeft>
-          <ServicesRight>
-            {services.map((service, index) => (
-              <ServiceText key={index}>{service}</ServiceText>
-            ))}
-          </ServicesRight>
-        </ServicesSection>
-    </>
+    <ServicesSection>
+      <ServicesLeft>
+        <ServicesHeader ref={headerRef}>services</ServicesHeader>
+      </ServicesLeft>
+      <ServicesRight className="services-right">
+        {services.map((service, index) => (
+          <ServiceText key={index} className="service-text">{service}</ServiceText>
+        ))}
+      </ServicesRight>
+    </ServicesSection>
   );
 };
 
