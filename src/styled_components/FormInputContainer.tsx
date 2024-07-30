@@ -21,10 +21,6 @@ const FormInputContainer = styled.div`
     top: 0;
   }
   margin-bottom: 1rem;
-  @media (max-width: 1080px) {
-    margin: 0;
-    margin-bottom: 40px;
-  }
 `;
 
 export default FormInputContainer;
