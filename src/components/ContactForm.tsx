@@ -137,7 +137,7 @@ const ContactForm: React.FC = () => {
   return (
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormHeader>Project Type</FormHeader>
+        <FormHeader>What can we help you with?</FormHeader>
         <MultiSelectContainer>
           {productTypeOptions.map((option) => (
             <MultiSelectButton
