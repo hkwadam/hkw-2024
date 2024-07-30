@@ -10,7 +10,7 @@ const GlobalStyles: React.FC = () => (
       html {
         font-size: 24px;
         @media (min-width: 1441px) {
-          font-size: 20px;
+          font-size: 1.389vw;
         }
         @media (max-width: 1440px) {
           font-size: 16px;
