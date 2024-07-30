@@ -5,11 +5,8 @@ const MultiSelectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  @media (max-width: 1080px) {
-    margin-top: 1.25rem;
-    margin-bottom: 2.5rem;
-  }
-
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
 `;
 
 const MultiSelectButton = styled.button<{ selected: boolean }>`

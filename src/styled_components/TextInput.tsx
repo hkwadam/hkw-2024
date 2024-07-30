@@ -14,7 +14,6 @@ const TextInput = styled.input<{ error?: boolean }>`
   transition: border-color 0.4s ease-in-out, padding 0.4s ease-in-out;
   color: #fff;
   &:focus {
-    padding: 1rem 0;
     outline: none;
   }
 `;
