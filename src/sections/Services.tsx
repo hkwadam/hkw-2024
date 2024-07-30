@@ -56,7 +56,7 @@ const ServicesHeader = styled(Text)`
     letter-spacing: -2px;
   }
   @media (max-width: 600px) {
-    font-size: 20px;
+    font-size: 32px;
     letter-spacing: -1px;
   }
   @media (min-width: 1081px) {
@@ -94,9 +94,12 @@ const ServiceText = styled(Text)`
     margin-bottom: -0.25em;
   }
   transition: color 0.4s ease, transform 0.4s ease;
-  &.active {
-    color: white;
+  @media (min-width: 1080px) {
+    &.active {
+      color: white;
+    }
   }
+
 `
 
 const Services: React.FC = () => {
