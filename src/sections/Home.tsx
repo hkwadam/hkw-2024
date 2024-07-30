@@ -15,10 +15,9 @@ interface HomeProps {
 
 const HeroSection = styled(Section)`
   min-height: 100vh;
-  @media (max-width: 1080px) {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+
 `
 
 const HeroSansNav = styled(Section)`
