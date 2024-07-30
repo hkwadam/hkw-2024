@@ -1,17 +1,16 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import styled from '@emotion/styled';
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import emailjs from '@emailjs/browser';
-// https://react-hook-form.com/get-started
 import Container from '../styled_components/Container';
 import Form from '../styled_components/Form';
 import FormInputContainer from '../styled_components/FormInputContainer';
 import Label from '../styled_components/Label';
 import TextInput from '../styled_components/TextInput';
 import Button from '../styled_components/Button';
-import RadioButton from '../styled_components/RadioButton';
 import ErrorMessage from '../styled_components/ErrorMessage';
+import { MultiSelectContainer, MultiSelectButton } from '../styled_components/MultiSelect';
 
 const FormHeader = styled(Label)`
   color: #9E9E9E;
@@ -52,7 +51,7 @@ const SubmitButton = styled(Button)`
 `;
 
 type Inputs = {
-  productType: string;
+  productType: { label: string; value: string }[];
   name: string;
   organization: string;
   email: string;
@@ -63,21 +62,44 @@ type Inputs = {
 
 const ContactForm: React.FC = () => {
   const {
+    control,
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const productTypeRadios = [
-    'Strategy', 'Branding', 'Writing', 'Design', 'Web', 'Apps',
-    'Products', 'Print', 'Campaigns', 'Marketing', 'SEO', 'Analytics'
+  const productTypeOptions = [
+    { value: 'strategy', label: 'Strategy' },
+    { value: 'branding', label: 'Branding' },
+    { value: 'writing', label: 'Writing' },
+    { value: 'design', label: 'Design' },
+    { value: 'web', label: 'Web' },
+    { value: 'apps', label: 'Apps' },
+    { value: 'products', label: 'Products' },
+    { value: 'print', label: 'Print' },
+    { value: 'campaigns', label: 'Campaigns' },
+    { value: 'marketing', label: 'Marketing' },
+    { value: 'seo', label: 'SEO' },
+    { value: 'analytics', label: 'Analytics' }
   ];
+
+  const selectedProductTypes = watch("productType") || [];
+
+  const toggleProductType = (option: { label: string; value: string }) => {
+    if (selectedProductTypes.some((pt: { label: string; value: string }) => pt.value === option.value)) {
+      setValue("productType", selectedProductTypes.filter((pt: { label: string; value: string }) => pt.value !== option.value));
+    } else {
+      setValue("productType", [...selectedProductTypes, option]);
+    }
+  };
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const templateParams = {
       from_name: data.name,
       from_email: data.email,
-      product_type: data.productType,
+      product_type: data.productType.map(pt => pt.label).join(', '),
       organization: data.organization,
       phone: data.phone,
       website: data.website,
@@ -99,16 +121,19 @@ const ContactForm: React.FC = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormHeader>Project Type</FormHeader>
         <RadioContainer>
-          {productTypeRadios.map((type) => (
-            <RadioButton key={type}>
-              <input
-                type="radio"
-                value={type.toLowerCase()}
-                {...register("productType")}
-              />
-              <label>{type}</label>
-            </RadioButton>
-          ))}
+          <MultiSelectContainer>
+            {productTypeOptions.map((option) => (
+              <MultiSelectButton
+                key={option.value}
+                selected={selectedProductTypes.some((pt: { label: string; value: string }) => pt.value === option.value)}
+                onClick={() => toggleProductType(option)}
+                type="button"
+              >
+                {option.label}
+              </MultiSelectButton>
+            ))}
+          </MultiSelectContainer>
+          {errors.productType && <ErrorMessage>This is required</ErrorMessage>}
         </RadioContainer>
         <FormInputContainer>
           <FormHeader>What's your name?</FormHeader>
