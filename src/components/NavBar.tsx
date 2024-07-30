@@ -30,7 +30,10 @@ const LetsTalk = styled(TextColoredPunct)`
   @media (max-width: 1080px) {
     font-size: 16px;
   }
-  animation: slideIn 1s forwards;
+  opacity: 0;
+  transform: translateY(5px);
+  animation: slideInOpacityHero 2s forwards;
+  animation-delay: 1s;
 `
 
 const NavBar: React.FC<NavBarProps> = ({ contactRef, setShowOverlay }) => {

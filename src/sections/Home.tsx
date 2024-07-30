@@ -68,9 +68,10 @@ const HeroRightContainer = styled(Container)`
 const HeroText = styled(Text)`
   font-size: 1.25rem;
   line-height: 115%;
-  opacity: 1;
+  opacity: 0;
   transform: translateY(40px);
-  animation: slideIn 1s forwards;
+  animation: slideInOpacity 2s forwards;
+  animation-delay: 0.75s;
   @media (max-width: 1080px) {
     font-size: 1rem;
   }
@@ -78,6 +79,10 @@ const HeroText = styled(Text)`
     font-size: 1.25rem;
   }
 `;
+
+const HeroTextRight = styled(HeroText)`
+  animation-delay: 1s;
+`
 
 const HeroBottomContainer = styled(Container)`
   grid-column: 1 / 13;
@@ -88,6 +93,10 @@ const HeroBottomContainer = styled(Container)`
     padding: 0;
   }
 `;
+
+const HeroHeaderSlideInContainer = styled(SlideInContainer)`
+  overflow: hidden;
+`
 
 const HeroHeader = styled(TextColorPunct)`
   color: #FF1A35;
@@ -114,7 +123,7 @@ const HeroHeader = styled(TextColorPunct)`
     letter-spacing: -1.9px;
   }
   transform: translateY(40px);
-  animation: slideIn 1s forwards;
+  animation: slideInTranslate 2s forwards;
 `;
 
 const WhitePeriod = styled(ColoredPunct)`
@@ -137,33 +146,33 @@ const Home: React.FC<HomeProps> = ({ contactRef, setShowOverlay }) => {
             </HeroLeftContainer>
             <HeroRightContainer>
               <SlideInContainer>
-                <HeroText>
+                <HeroTextRight>
                   We build unique online experiences and engaging campaigns for non-profits and fun brands. We gravitate to the quirky and give it purpose.
-                </HeroText>
+                </HeroTextRight>
               </SlideInContainer>
               <SlideInContainer>
-                <HeroText>
+                <HeroTextRight>
                   For those looking to make a statement, we'd like to help you find your voice.
-                </HeroText>
+                </HeroTextRight>
               </SlideInContainer>
             </HeroRightContainer>
           </HeroTextContainer>
           <HeroBottomContainer>
-            <SlideInContainer>
+            <HeroHeaderSlideInContainer>
               <HeroHeader>
                 We're
               </HeroHeader>
-            </SlideInContainer>
-            <SlideInContainer>
+            </HeroHeaderSlideInContainer>
+            <HeroHeaderSlideInContainer>
               <HeroHeader>
                 changing
               </HeroHeader>
-            </SlideInContainer>
-            <SlideInContainer>
+            </HeroHeaderSlideInContainer>
+            <HeroHeaderSlideInContainer>
               <HeroHeader>
                 everything<WhitePeriod>.</WhitePeriod>
               </HeroHeader>
-            </SlideInContainer>
+            </HeroHeaderSlideInContainer>
           </HeroBottomContainer>
         </HeroSansNav>
       </HeroSection>

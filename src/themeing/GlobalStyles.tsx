@@ -45,12 +45,32 @@ const GlobalStyles: React.FC = () => (
       div {
         box-sizing: border-box;
       }
-      @keyframes slideIn {
+      @keyframes slideInTranslate {
         from {
-          transform: translateY(500px);
+          transform: translateY(6rem);
         }
         to {
           transform: translateY(0);
+        }
+      }
+      @keyframes slideInOpacity {
+        from {
+          transform: translateY(6rem);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+        @keyframes slideInOpacityHero {
+        from {
+          transform: translateY(1rem);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
         }
       }
     `}

@@ -13,7 +13,10 @@ const HKWLogo = styled.div`
   svg {
     height: 100%;
   }
-  animation: slideIn 1s forwards;
+  opacity: 0;
+  transform: translateY(5px);
+  animation: slideInOpacityHero 2s forwards;
+  animation-delay: 0.75s;
 `;
 
 export default HKWLogo;
