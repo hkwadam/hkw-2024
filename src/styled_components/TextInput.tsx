@@ -6,8 +6,8 @@ const TextInput = styled.input<{ error?: boolean }>`
   border: 1px solid transparent;
   font-size: 1.25rem;
   border-bottom: 1px solid ${props => props.error ? 'red' : '#9E9E9E'};
-  height: 1.5rem;
-  padding: 1rem 0;
+  height: 4rem;
+  padding: 0;
   :hover {
     border-bottom: 1px solid ${props => props.error ? 'red' : '#fff'};
   }

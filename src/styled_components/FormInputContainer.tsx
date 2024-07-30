@@ -7,23 +7,29 @@ const FormInputContainer = styled.div`
   flex-direction: column;
   background-color: transparent;
   position: relative;
-  margin: 1rem 0;
-  height: 3rem;
+  margin-bottom: 2rem;
 
   label {
     position: absolute;
     left: 0;
-    top: 1rem;
-    font-size: 1rem;
+    top: 2rem;
+    font-size: 20px;
+    @media (max-width: 600px) {
+      font-size: 18px; 
+    }
     color: #9E9E9E;
     transition: all 0.3s ease;
     pointer-events: none;
 
     &.shrink {
       color: #fff;
-      font-size: 0.75rem;
-      top: 0;
+      font-size: 1rem;
+      top: -0.5rem;
     }
+  }
+
+  .error-message {
+    margin-top: 0.5rem;
   }
 `;
 

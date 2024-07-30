@@ -6,7 +6,7 @@ const MultiSelectContainer = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `;
 
 const MultiSelectButton = styled.button<{ selected: boolean }>`
