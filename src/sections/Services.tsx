@@ -16,7 +16,7 @@ const ServicesSection = styled(Section)`
   }
 `
 const ServicesLeft = styled(Container)`
-  grid-column: 1 / 7;
+  grid-column: 1 / 6;
   justify-content: flex-start;
   @media (max-width: 1080px) {
     margin-bottom: 40px;
@@ -28,7 +28,7 @@ const ServicesLeft = styled(Container)`
 `
 
 const ServicesRight = styled(Container)`
-  grid-column: 7 / 13;
+  grid-column: 6 / 13;
   justify-content: flex-start;
   flex-direction: column;
   gap: 1.75rem;
@@ -45,7 +45,7 @@ const ServicesHeader = styled(Text)`
   color: #FDF4E2;
   font-family: "pf-grand-gothik-variable", sans-serif;
   font-variation-settings: "ital" 0, "wdth" 150, "wght" 900;    
-  font-size: 2.25rem;
+  font-size: 3.2rem;
   font-style: normal;
   font-weight: 900;
   letter-spacing: -2px;
@@ -58,11 +58,15 @@ const ServicesHeader = styled(Text)`
     font-size: 20px;
     letter-spacing: -1px;
   }
+  @media (min-width: 1081px) {
+    position: sticky;
+    top: 6rem;
+  }
 `
 
 const ServiceText = styled(Text)`
   color: rgba(255, 255, 255, 0.20);
-  font-size: 4.444vw;
+  font-size: 6.4rem;
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 500;
   font-style: normal;
