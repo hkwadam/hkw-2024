@@ -14,16 +14,22 @@ const ContactSection = styled(Section)`
   }
 `
 const FormHeaderContainer = styled(Container)`
-  display: flex;
-  flex-direction: column;
   grid-column: 1 / 6;
-  gap: 2rem;
   @media (max-width: 1080px) {
     grid-column: 1 / 13;
     margin-bottom: 2.5rem;
   }
   @media (max-width: 600px) {
     margin-bottom: 2rem;
+  }
+`
+const FormTitleTexts = styled(Container)`
+  height: fit-content;
+  flex-direction: column;
+  gap: 2rem;
+  @media (min-width: 1080px) {
+    position: sticky;
+    top: 6rem;
   }
 `
 const FormContainer = styled(Container)`
@@ -84,10 +90,12 @@ const Contact: React.FC = () => {
     <>
         <ContactSection>
           <FormHeaderContainer>
-            <LetsTalk>
-              Let's <br className="hide-on-mobile"></br>talk<ColoredPunct>.</ColoredPunct>
-            </LetsTalk>
-            <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
+            <FormTitleTexts>
+              <LetsTalk>
+                Let's <br className="hide-on-mobile"></br>talk<ColoredPunct>.</ColoredPunct>
+              </LetsTalk>
+              <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
+            </FormTitleTexts>
           </FormHeaderContainer>
           <FormContainer>
             <ContactForm />
