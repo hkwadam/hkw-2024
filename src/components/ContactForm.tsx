@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import styled from '@emotion/styled';
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import emailjs from '@emailjs/browser';
 import Container from '../styled_components/Container';
 import Form from '../styled_components/Form';
@@ -16,21 +16,6 @@ const FormHeader = styled(Label)`
   color: #9E9E9E;
   font-size: 1.25rem;
   font-weight: 450;
-`;
-
-const RadioContainer = styled(Container)`
-  display: flex;
-  gap: 1rem 0;
-  flex-wrap: wrap;
-  background-color: transparent;
-  @media (max-width: 1080px) {
-    margin-bottom: 2.5rem;
-    margin-top: 1rem;
-  }
-  @media (max-width: 600px) {
-    margin-bottom: 3.33rem;
-    margin-top: 1.25rem;
-  }
 `;
 
 const SubmitButton = styled(Button)`
@@ -62,7 +47,6 @@ type Inputs = {
 
 const ContactForm: React.FC = () => {
   const {
-    control,
     register,
     handleSubmit,
     setValue,
@@ -120,7 +104,6 @@ const ContactForm: React.FC = () => {
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormHeader>Project Type</FormHeader>
-        <RadioContainer>
           <MultiSelectContainer>
             {productTypeOptions.map((option) => (
               <MultiSelectButton
@@ -134,7 +117,6 @@ const ContactForm: React.FC = () => {
             ))}
           </MultiSelectContainer>
           {errors.productType && <ErrorMessage>This is required</ErrorMessage>}
-        </RadioContainer>
         <FormInputContainer>
           <FormHeader>What's your name?</FormHeader>
           <TextInput defaultValue="" error={!!errors.name} {...register("name", { required: true })} />
