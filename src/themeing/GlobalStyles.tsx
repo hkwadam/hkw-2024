@@ -45,6 +45,14 @@ const GlobalStyles: React.FC = () => (
       div {
         box-sizing: border-box;
       }
+      @keyframes slideIn {
+        from {
+          transform: translateY(500px);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
     `}
   />
 );

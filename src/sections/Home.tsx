@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Section from '../styled_components/Section';
 import Container from '../styled_components/Container';
+import SlideInContainer from '../styled_components/SlideInContainer';
 import Text from '../styled_components/Text';
 import TextColorPunct from '../styled_components/TextColorPunct';
 import ColoredPunct from '../styled_components/ColoredPunct';
@@ -17,8 +18,8 @@ const HeroSection = styled(Section)`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
-`
+  overflow: hidden; /* Ensure overflow is hidden */
+`;
 
 const HeroSansNav = styled(Section)`
   height: 100%;
@@ -30,7 +31,7 @@ const HeroSansNav = styled(Section)`
     flex-direction: column;
     justify-content: space-between;
   }
-`
+`;
 
 const HeroTextContainer = styled(Section)`
   height: 100%;
@@ -40,7 +41,7 @@ const HeroTextContainer = styled(Section)`
     justify-content: flex-start;
     gap: 56px;
   }
-` 
+`;
 
 const HeroLeftContainer = styled(Container)`
   grid-column: 1 / 5;
@@ -48,7 +49,7 @@ const HeroLeftContainer = styled(Container)`
   @media (max-width: 1080px) {
     grid-column: 1 / 6;
   }
-`
+`;
 
 const HeroRightContainer = styled(Container)`
   grid-column: 6 / 11;
@@ -62,18 +63,21 @@ const HeroRightContainer = styled(Container)`
   @media (max-width: 600px) {
     gap: 16px;
   }
-`
+`;
 
 const HeroText = styled(Text)`
   font-size: 1.25rem;
   line-height: 115%;
+  opacity: 1;
+  transform: translateY(40px);
+  animation: slideIn 1s forwards;
   @media (max-width: 1080px) {
     font-size: 1rem;
   }
   @media (max-width: 600px) {
     font-size: 1.25rem;
   }
-`
+`;
 
 const HeroBottomContainer = styled(Container)`
   grid-column: 1 / 13;
@@ -83,7 +87,7 @@ const HeroBottomContainer = styled(Container)`
   @media (max-width: 600px) {
     padding: 0;
   }
-`
+`;
 
 const HeroHeader = styled(TextColorPunct)`
   color: #FF1A35;
@@ -91,12 +95,13 @@ const HeroHeader = styled(TextColorPunct)`
   font-family: "pf-grand-gothik-variable", sans-serif;
   font-variation-settings: "ital" 0, "wdth" 150, "wght" 900;
   text-transform: uppercase;
-  line-height: 77%;
+  line-height: 100%;
   letter-spacing: -0.375rem;
-  margin-top: 2rem;
+  margin-top: 0;
+  margin-bottom: -1.25rem;
   @media (min-width: 1440px) {
     font-size: 6rem;
-}
+  }
   @media (max-width: 1080px) {
     font-size: 5rem;
     line-height: 4.125rem;
@@ -108,14 +113,15 @@ const HeroHeader = styled(TextColorPunct)`
     line-height: 29px;
     letter-spacing: -1.9px;
   }
-`
+  transform: translateY(40px);
+  animation: slideIn 1s forwards;
+`;
 
 const WhitePeriod = styled(ColoredPunct)`
   color: #FDF4E2;
-`
+`;
 
 const Home: React.FC<HomeProps> = ({ contactRef, setShowOverlay }) => {
-
   return (
     <>
       <HeroSection>
@@ -123,23 +129,41 @@ const Home: React.FC<HomeProps> = ({ contactRef, setShowOverlay }) => {
         <HeroSansNav>
           <HeroTextContainer>
             <HeroLeftContainer>
-              <HeroText>
-                We are a digital design and marketing studio based in Spokane, Washington.
-              </HeroText>
+              <SlideInContainer>
+                <HeroText>
+                  We are a digital design and marketing studio based in Spokane, Washington.
+                </HeroText>
+              </SlideInContainer>
             </HeroLeftContainer>
             <HeroRightContainer>
-              <HeroText>
-                We build unique online experiences and engaging campaigns for non-profits and fun brands. We gravitate to the quirky and give it purpose.
-              </HeroText>
-              <HeroText>
-                For those looking to make a statement, we'd like to help you find your voice.
-              </HeroText>
+              <SlideInContainer>
+                <HeroText>
+                  We build unique online experiences and engaging campaigns for non-profits and fun brands. We gravitate to the quirky and give it purpose.
+                </HeroText>
+              </SlideInContainer>
+              <SlideInContainer>
+                <HeroText>
+                  For those looking to make a statement, we'd like to help you find your voice.
+                </HeroText>
+              </SlideInContainer>
             </HeroRightContainer>
           </HeroTextContainer>
           <HeroBottomContainer>
-            <HeroHeader>
-              We're<br></br>changing<br></br>everything<WhitePeriod>.</WhitePeriod>
-            </HeroHeader>
+            <SlideInContainer>
+              <HeroHeader>
+                We're
+              </HeroHeader>
+            </SlideInContainer>
+            <SlideInContainer>
+              <HeroHeader>
+                changing
+              </HeroHeader>
+            </SlideInContainer>
+            <SlideInContainer>
+              <HeroHeader>
+                everything<WhitePeriod>.</WhitePeriod>
+              </HeroHeader>
+            </SlideInContainer>
           </HeroBottomContainer>
         </HeroSansNav>
       </HeroSection>

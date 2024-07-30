@@ -13,6 +13,7 @@ const HKWLogo = styled.div`
   svg {
     height: 100%;
   }
+  animation: slideIn 1s forwards;
 `;
 
 export default HKWLogo;
