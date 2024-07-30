@@ -16,7 +16,7 @@ const ContactSection = styled(Section)`
 const FormHeaderContainer = styled(Container)`
   display: flex;
   flex-direction: column;
-  grid-column: 1 / 7;
+  grid-column: 1 / 6;
   gap: 2rem;
   @media (max-width: 1080px) {
     grid-column: 1 / 13;
@@ -28,7 +28,7 @@ const FormHeaderContainer = styled(Container)`
 `
 const FormContainer = styled(Container)`
   background-color: #1F1F1F;
-  grid-column: 7 / 13;
+  grid-column: 6 / 13;
   border-radius: 2.5rem;
   padding: 2.5rem;
   gap: 2.5rem;
