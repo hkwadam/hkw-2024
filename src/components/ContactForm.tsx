@@ -9,6 +9,8 @@ import Label from '../styled_components/Label';
 import TextInput from '../styled_components/TextInput';
 import Button from '../styled_components/Button';
 import ErrorMessage from '../styled_components/ErrorMessage';
+import SentMessage from '../styled_components/SentMessage';
+import PaperPlane from '../styled_components/PaperPlane';
 import { MultiSelectContainer, MultiSelectButton } from '../styled_components/MultiSelect';
 
 const FormHeader = styled(Label)`
@@ -33,12 +35,6 @@ const SubmitButton = styled(Button)`
     color: #1F1F1F;
     background-position: 0 100%;
   }
-`;
-
-const SentMessage = styled.div`
-  color: #FDF4E2;
-  font-size: 1.25rem;
-  margin-top: 1.5rem;
 `;
 
 type Inputs = {
@@ -90,7 +86,7 @@ const ContactForm: React.FC = () => {
     const templateParams = {
       from_name: data.name,
       from_email: data.email,
-      product_type: data.productType.map(pt => pt.label).join(', '),
+      product_type: Array.isArray(data.productType) ? data.productType.map(pt => pt.label).join(', ') : '',
       organization: data.organization,
       phone: data.phone,
       website: data.website,
@@ -158,7 +154,7 @@ const ContactForm: React.FC = () => {
         <FormInputContainer className="form-input-container">
           <label>What's your name?</label>
           <TextInput defaultValue="" error={!!errors.name} {...register("name", { required: true })} />
-          {errors.name && <ErrorMessage>This is required</ErrorMessage>}
+          {errors.name && <ErrorMessage className="error-message">This is required</ErrorMessage>}
         </FormInputContainer>
         <FormInputContainer className="form-input-container">
           <label>What organization do you work with?</label>
@@ -176,7 +172,7 @@ const ContactForm: React.FC = () => {
               }
             })}
             aria-invalid={errors.email ? "true" : "false"} />
-          {errors.email && <ErrorMessage>Entered value does not match email format</ErrorMessage>}
+          {errors.email && <ErrorMessage className="error-message">Entered value does not match email format</ErrorMessage>}
         </FormInputContainer>
         <FormInputContainer className="form-input-container">
           <label>Phone</label>
@@ -189,10 +185,10 @@ const ContactForm: React.FC = () => {
         <FormInputContainer className="form-input-container">
           <label>Tell us about your project</label>
           <TextInput defaultValue="" error={!!errors.project} {...register("project", { required: true })} />
-          {errors.project && <ErrorMessage>This is required</ErrorMessage>}
+          {errors.project && <ErrorMessage className="error-message">This is required</ErrorMessage>}
         </FormInputContainer>
         {isSent ? (
-          <SentMessage>Sent</SentMessage>
+          <SentMessage><PaperPlane />Thanks for reaching out, we’ll get back to you soon.</SentMessage>
         ) : (
           <SubmitButton type="submit">Send your message</SubmitButton>
         )}
