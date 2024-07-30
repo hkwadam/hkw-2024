@@ -48,16 +48,13 @@ const LetsTalk = styled(TextColoredPunct)`
   color: #FDF4E2;
   font-family: "pf-grand-gothik-variable", sans-serif;
   font-variation-settings: "ital" 0, "wdth" 150, "wght" 900;
-  font-size: 6rem;
   line-height: 100%;
-  letter-spacing: -0.3rem;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
+  font-size: 3.2rem;
   @media (max-width: 1080px) {
-    font-size: 4.375rem;
+    font-size: 40px;
     letter-spacing: -0.22rem;
-    .hide-on-mobile {
-      display: none;
-    }
   }
   @media (max-width: 600px) {
     font-size: 32px;
@@ -92,7 +89,7 @@ const Contact: React.FC = () => {
           <FormHeaderContainer>
             <FormTitleTexts>
               <LetsTalk>
-                Let's <br className="hide-on-mobile"></br>talk<ColoredPunct>.</ColoredPunct>
+                Let's talk<ColoredPunct>.</ColoredPunct>
               </LetsTalk>
               <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
             </FormTitleTexts>
