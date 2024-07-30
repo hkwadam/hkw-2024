@@ -6,21 +6,25 @@ const FormInputContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: transparent;
-  input {
-    height: 2rem;
-  }
+  position: relative;
+  margin: 1rem 0;
+  height: 3rem;
+
   label {
-    position: relative;
-    top: 2rem;
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    font-size: 1rem;
+    color: #9E9E9E;
     transition: all 0.3s ease;
     pointer-events: none;
+
+    &.shrink {
+      color: #fff;
+      font-size: 0.75rem;
+      top: 0;
+    }
   }
-  &:focus-within label {
-    color: #fff;
-    font-size: 0.75rem;
-    top: 0;
-  }
-  margin-bottom: 1rem;
 `;
 
 export default FormInputContainer;

@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useForm, SubmitHandler } from "react-hook-form";
 import emailjs from '@emailjs/browser';
@@ -35,6 +35,12 @@ const SubmitButton = styled(Button)`
   }
 `;
 
+const SentMessage = styled.div`
+  color: #FDF4E2;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+`;
+
 type Inputs = {
   productType: { label: string; value: string }[];
   name: string;
@@ -46,6 +52,7 @@ type Inputs = {
 };
 
 const ContactForm: React.FC = () => {
+  const [isSent, setIsSent] = useState(false);
   const {
     register,
     handleSubmit,
@@ -93,6 +100,7 @@ const ContactForm: React.FC = () => {
     emailjs
       .send('HKW_contact_form', 'contact_form', templateParams, { publicKey: 'SU5SXRijMIg8MP5Kx', })
       .then(() => {
+        setIsSent(true);
         console.log('email sent');
       })
       .catch((error) => {
@@ -100,34 +108,64 @@ const ContactForm: React.FC = () => {
       });
   };
 
+  const inputValues = watch();
+
+  useEffect(() => {
+    const inputContainers = document.querySelectorAll('.form-input-container');
+    inputContainers.forEach(container => {
+      const input = container.querySelector('input');
+      const label = container.querySelector('label');
+      if (input && label) {
+        const addShrinkClass = () => label.classList.add('shrink');
+        const removeShrinkClass = () => {
+          if (!input.value) label.classList.remove('shrink');
+        };
+
+        input.addEventListener('focus', addShrinkClass);
+        input.addEventListener('blur', removeShrinkClass);
+
+        if (input.value) {
+          label.classList.add('shrink');
+        } else {
+          label.classList.remove('shrink');
+        }
+
+        return () => {
+          input.removeEventListener('focus', addShrinkClass);
+          input.removeEventListener('blur', removeShrinkClass);
+        };
+      }
+    });
+  }, [inputValues]);
+
   return (
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormHeader>Project Type</FormHeader>
-          <MultiSelectContainer>
-            {productTypeOptions.map((option) => (
-              <MultiSelectButton
-                key={option.value}
-                selected={selectedProductTypes.some((pt: { label: string; value: string }) => pt.value === option.value)}
-                onClick={() => toggleProductType(option)}
-                type="button"
-              >
-                {option.label}
-              </MultiSelectButton>
-            ))}
-          </MultiSelectContainer>
-          {errors.productType && <ErrorMessage>This is required</ErrorMessage>}
-        <FormInputContainer>
-          <FormHeader>What's your name?</FormHeader>
+        <MultiSelectContainer>
+          {productTypeOptions.map((option) => (
+            <MultiSelectButton
+              key={option.value}
+              selected={selectedProductTypes.some((pt: { label: string; value: string }) => pt.value === option.value)}
+              onClick={() => toggleProductType(option)}
+              type="button"
+            >
+              {option.label}
+            </MultiSelectButton>
+          ))}
+        </MultiSelectContainer>
+        {errors.productType && <ErrorMessage>This is required</ErrorMessage>}
+        <FormInputContainer className="form-input-container">
+          <label>What's your name?</label>
           <TextInput defaultValue="" error={!!errors.name} {...register("name", { required: true })} />
           {errors.name && <ErrorMessage>This is required</ErrorMessage>}
         </FormInputContainer>
-        <FormInputContainer>
-          <FormHeader>What organization do you work with?</FormHeader>
+        <FormInputContainer className="form-input-container">
+          <label>What organization do you work with?</label>
           <TextInput defaultValue="" error={!!errors.organization} {...register("organization")} />
         </FormInputContainer>
-        <FormInputContainer>
-          <FormHeader>Email</FormHeader>
+        <FormInputContainer className="form-input-container">
+          <label>Email</label>
           <TextInput defaultValue=""
             error={!!errors.email}
             {...register("email", {
@@ -140,20 +178,24 @@ const ContactForm: React.FC = () => {
             aria-invalid={errors.email ? "true" : "false"} />
           {errors.email && <ErrorMessage>Entered value does not match email format</ErrorMessage>}
         </FormInputContainer>
-        <FormInputContainer>
-          <FormHeader>Phone</FormHeader>
+        <FormInputContainer className="form-input-container">
+          <label>Phone</label>
           <TextInput defaultValue="" error={!!errors.phone} {...register("phone")} />
         </FormInputContainer>
-        <FormInputContainer>
-          <FormHeader>Do you have a website?</FormHeader>
+        <FormInputContainer className="form-input-container">
+          <label>Do you have a website?</label>
           <TextInput defaultValue="" error={!!errors.website} {...register("website")} />
         </FormInputContainer>
-        <FormInputContainer>
-          <FormHeader>Tell us about your project</FormHeader>
+        <FormInputContainer className="form-input-container">
+          <label>Tell us about your project</label>
           <TextInput defaultValue="" error={!!errors.project} {...register("project", { required: true })} />
           {errors.project && <ErrorMessage>This is required</ErrorMessage>}
         </FormInputContainer>
-        <SubmitButton type="submit">Send your message</SubmitButton>
+        {isSent ? (
+          <SentMessage>Sent</SentMessage>
+        ) : (
+          <SubmitButton type="submit">Send your message</SubmitButton>
+        )}
       </Form>
     </>
   );
