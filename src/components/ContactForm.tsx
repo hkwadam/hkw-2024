@@ -3,7 +3,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useForm, SubmitHandler } from "react-hook-form";
 import emailjs from '@emailjs/browser';
-import Container from '../styled_components/Container';
 import Form from '../styled_components/Form';
 import FormInputContainer from '../styled_components/FormInputContainer';
 import Label from '../styled_components/Label';

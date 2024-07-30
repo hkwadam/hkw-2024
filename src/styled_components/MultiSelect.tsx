@@ -5,6 +5,11 @@ const MultiSelectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  @media (max-width: 1080px) {
+    margin-top: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
 `;
 
 const MultiSelectButton = styled.button<{ selected: boolean }>`
@@ -19,10 +24,13 @@ const MultiSelectButton = styled.button<{ selected: boolean }>`
   background-repeat: repeat;
   background-size: 100% 200%;
   transition: all 0.3s ease-in-out;
-  &:hover {
-    color: #1F1F1F;
-    background-position: 0 100%;
+  @media (min-width: 1080px) {
+    &:hover {
+        color: #1F1F1F;
+        background-position: 0 100%;
+    }
   }
+
 `;
 
 export { MultiSelectContainer, MultiSelectButton };
