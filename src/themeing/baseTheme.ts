@@ -9,7 +9,7 @@ const baseTheme: Partial<Theme> = {
     gap: '0 16px',
   },
   nav: {
-    padding: '2rem 0 5rem 0',
+    padding: '36px 0 56px 0',
     mobilePadding: '20px 0 0 0',
     tabletPadding: '24px 0',
     buttonBackground: 'transparent',

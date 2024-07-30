@@ -91,9 +91,12 @@ const HeroHeader = styled(TextColorPunct)`
   font-family: "pf-grand-gothik-variable", sans-serif;
   font-variation-settings: "ital" 0, "wdth" 150, "wght" 900;
   text-transform: uppercase;
-  line-height: 6.75rem;
-  letter-spacing: -0.4375rem;
+  line-height: 77%;
+  letter-spacing: -0.375rem;
   margin-top: 2rem;
+  @media (min-width: 1440px) {
+    font-size: 6rem;
+}
   @media (max-width: 1080px) {
     font-size: 5rem;
     line-height: 4.125rem;

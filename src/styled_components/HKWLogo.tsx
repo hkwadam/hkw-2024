@@ -7,7 +7,7 @@ const HKWLogo = styled.div`
   @media (min-width: 1440px) {
     width: 4.444vw;
   }
-  @media (max-width: 1080px) {
+  @media (max-width: 1439px) {
     width: 46px;
   }
   svg {

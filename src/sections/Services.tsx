@@ -62,7 +62,7 @@ const ServicesHeader = styled(Text)`
 
 const ServiceText = styled(Text)`
   color: rgba(255, 255, 255, 0.20);
-  font-size: 64px;
+  font-size: 4.444vw;
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 500;
   font-style: normal;

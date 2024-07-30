@@ -13,7 +13,10 @@ const FormInputContainer = styled.div`
     position: absolute;
     left: 0;
     top: 2rem;
-    font-size: 20px;
+    font-size: 1.389vw;
+    @media (max-width: 1439px) {
+      font-size: 20px;
+    }
     @media (max-width: 600px) {
       font-size: 18px; 
     }
