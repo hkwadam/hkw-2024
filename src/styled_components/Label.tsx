@@ -11,7 +11,6 @@ const Label = styled.label`
     font-size: 18px;
     font-weight: 450;
   }
-
 `;
 
 export default Label;

@@ -23,14 +23,30 @@ const FormInputContainer = styled.div`
     color: #9E9E9E;
     transition: all 0.3s ease;
     pointer-events: none;
-
     &.shrink {
       color: #fff;
       font-size: 1rem;
       top: -0.5rem;
     }
+    &.textarea {
+      top: 1.75rem;
+      &.shrink {
+        top: -.75rem;
+      }
+      @media (max-width: 1080px) {
+        top: 1.75rem;
+        &.shrink {
+          top: -.75rem;
+        }
+      }
+      @media (max-width: 600px) {
+        top: 1.75rem;
+        &.shrink {
+          top: -.5rem;
+        }
+      }
+    }
   }
-
   .error-message {
     margin-top: 0.5rem;
   }

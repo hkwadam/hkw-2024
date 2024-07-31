@@ -51,6 +51,7 @@ const SlideInContainerSticky = styled(SlideInContainer)`
     position: sticky;
     top: 6rem;
   }
+  grid-column: 1 / 6;
 `
 
 const ServicesHeader = styled(Text)`

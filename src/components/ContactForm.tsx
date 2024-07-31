@@ -7,6 +7,7 @@ import Form from '../styled_components/Form';
 import FormInputContainer from '../styled_components/FormInputContainer';
 import Label from '../styled_components/Label';
 import TextInput from '../styled_components/TextInput';
+import TextArea from '../styled_components/TextArea';
 import Button from '../styled_components/Button';
 import ErrorMessage from '../styled_components/ErrorMessage';
 import SentMessage from '../styled_components/SentMessage';
@@ -109,7 +110,7 @@ const ContactForm: React.FC = () => {
   useEffect(() => {
     const inputContainers = document.querySelectorAll('.form-input-container');
     inputContainers.forEach(container => {
-      const input = container.querySelector('input');
+      const input = container.querySelector('input, textarea');
       const label = container.querySelector('label');
       if (input && label) {
         const addShrinkClass = () => label.classList.add('shrink');
@@ -183,8 +184,8 @@ const ContactForm: React.FC = () => {
           <TextInput defaultValue="" error={!!errors.website} {...register("website")} />
         </FormInputContainer>
         <FormInputContainer className="form-input-container">
-          <label>Tell us about your project</label>
-          <TextInput defaultValue="" error={!!errors.project} {...register("project", { required: true })} />
+          <label className="textarea">Tell us about your project</label>
+          <TextArea defaultValue="" error={!!errors.project} {...register("project", { required: true })} />
           {errors.project && <ErrorMessage className="error-message">This is required</ErrorMessage>}
         </FormInputContainer>
         {isSent ? (
@@ -195,6 +196,6 @@ const ContactForm: React.FC = () => {
       </Form>
     </>
   );
-}
+};
 
 export default ContactForm;
