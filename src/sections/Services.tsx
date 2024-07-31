@@ -102,8 +102,13 @@ const ServiceText = styled(Text)`
     margin-bottom: -0.25em;
   }
   transition: color 0.4s ease, transform 0.4s ease;
-  @media (min-width: 1080px) {
+  @media (min-width: 1081px) {
     &.active {
+      color: white;
+    }
+  }
+  @media (max-width: 1080px) {
+    &.centered {
       color: white;
     }
   }
@@ -140,6 +145,19 @@ const Services: React.FC = () => {
       serviceElements.forEach(el => el.classList.remove('active'));
       if (closest) {
         closest.classList.add('active');
+      }
+
+      if (window.innerWidth <= 1080) {
+        const centerY = window.innerHeight / 2;
+        serviceElements.forEach(el => {
+          const elRect = el.getBoundingClientRect();
+          const elCenterY = elRect.top + elRect.height / 2;
+          if (Math.abs(elCenterY - centerY) < elRect.height / 2) {
+            el.classList.add('centered');
+          } else {
+            el.classList.remove('centered');
+          }
+        });
       }
     };
 
