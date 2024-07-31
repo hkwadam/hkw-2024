@@ -198,7 +198,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit, isFormSubmitted
           <TextArea defaultValue="" error={!!errors.project} {...register("project", { required: true })} />
           {errors.project && <ErrorMessage className="error-message">This is required</ErrorMessage>}
         </FormInputContainer>
-        <SubmitButton type="submit" isSubmitting={isSubmitting}>{isSubmitting ? 'Sending' : 'Send your message'}</SubmitButton>
+        <SubmitButton type="submit" isSubmitting={isSubmitting}>{isSubmitting ? 'Sending...' : 'Send your message'}</SubmitButton>
       </Form>
     </>
   );

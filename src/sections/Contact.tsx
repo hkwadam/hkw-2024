@@ -48,11 +48,12 @@ const FormContainer = styled(Container)<{ isFormSubmitted: boolean }>`
     grid-column: 1 / 13;
     padding: 40px 20px;
   }
-  max-height: ${({ isFormSubmitted }) => (isFormSubmitted ? '100px' : '1000px')};
+  max-height: ${({ isFormSubmitted }) => (isFormSubmitted ? '150px' : '3000px')};
   height: 100%;
   overflow: hidden;
   opacity: ${({ isFormSubmitted }) => (isFormSubmitted ? '1' : '0')};
   transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  position: relative; /* Ensure children are positioned relative to this container */
 `;
 
 const LetsTalk = styled(TextColoredPunct)`
@@ -98,12 +99,21 @@ const FormSubHeader = styled(Text)`
   }
 `;
 
+const SentMessageText = styled(Text)`
+  color: #fff;
+  font-size: 1.75rem;
+  margin: 2rem;
+  font-weight: 500;
+  text-align: center;
+`
+
 const Contact: React.FC = () => {
   const formHeaderRef = useRef<HTMLDivElement>(null);
   const formContainerRef = useRef<HTMLDivElement>(null);
   const [hasAnimatedHeader, setHasAnimatedHeader] = useState(false);
   const [hasAnimatedForm, setHasAnimatedForm] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [showSentMessage, setShowSentMessage] = useState(false);
 
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
@@ -114,9 +124,9 @@ const Contact: React.FC = () => {
             setHasAnimatedHeader(true);
             observer.unobserve(entry.target);
           } else if (entry.target === formContainerRef.current && !hasAnimatedForm) {
-              entry.target.classList.add('slide-in-delay');
-              setHasAnimatedForm(true);
-              observer.unobserve(entry.target);
+            entry.target.classList.add('slide-in-delay');
+            setHasAnimatedForm(true);
+            observer.unobserve(entry.target);
           }
         }
       });
@@ -147,6 +157,9 @@ const Contact: React.FC = () => {
 
   const handleFormSubmit = () => {
     setIsFormSubmitted(true);
+    setTimeout(() => {
+      setShowSentMessage(true);
+    }, 750);
   };
 
   return (
@@ -162,6 +175,9 @@ const Contact: React.FC = () => {
         </FormHeaderContainer>
         <FormContainer ref={formContainerRef} isFormSubmitted={isFormSubmitted}>
           <ContactForm onFormSubmit={handleFormSubmit} isFormSubmitted={isFormSubmitted} />
+          <SentMessage className={showSentMessage ? 'visible' : ''}><SentMessageText>
+            Thanks for reaching out, we’ll get back to you soon.</SentMessageText>
+          </SentMessage>
         </FormContainer>
       </ContactSection>
     </>
