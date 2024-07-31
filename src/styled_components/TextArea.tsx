@@ -26,7 +26,7 @@ const TextAreaStyled = styled.textarea`
   }
 `;
 
-const TextArea = ({ error, ...props }) => {
+const TextArea = React.forwardRef((props, ref) => {
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const TextArea = ({ error, ...props }) => {
     };
   }, []);
 
-  return <TextAreaStyled ref={textareaRef} error={error} {...props} />;
-};
+  return <TextAreaStyled ref={(el) => { textareaRef.current = el; if (typeof ref === 'function') ref(el); else if (ref) ref.current = el; }} {...props} />;
+});
 
 export default TextArea;
