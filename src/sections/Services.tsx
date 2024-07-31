@@ -49,7 +49,8 @@ const ServicesRight = styled(Container)`
 const SlideInContainerSticky = styled(SlideInContainer)`
   @media (min-width: 1081px) {
     position: sticky;
-    top: 6rem;
+    top: 50vh;
+    transform: translateY(-50%);
   }
   grid-column: 1 / 6;
 `
