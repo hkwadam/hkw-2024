@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import Section from '../styled_components/Section';
 import Container from '../styled_components/Container';
@@ -12,7 +12,8 @@ const ContactSection = styled(Section)`
   @media (max-width: 600px) {
     padding: 48px 0;
   }
-`
+`;
+
 const FormHeaderContainer = styled(Container)`
   grid-column: 1 / 6;
   @media (max-width: 1080px) {
@@ -22,7 +23,9 @@ const FormHeaderContainer = styled(Container)`
   @media (max-width: 600px) {
     margin-bottom: 2rem;
   }
-`
+  opacity: 0;
+`;
+
 const FormTitleTexts = styled(Container)`
   height: fit-content;
   flex-direction: column;
@@ -31,7 +34,8 @@ const FormTitleTexts = styled(Container)`
     position: sticky;
     top: 6rem;
   }
-`
+`;
+
 const FormContainer = styled(Container)`
   background-color: #1F1F1F;
   grid-column: 6 / 13;
@@ -43,7 +47,9 @@ const FormContainer = styled(Container)`
     grid-column: 1 / 13;
     padding: 40px 20px;
   }
-`
+  opacity: 0;
+`;
+
 const LetsTalk = styled(TextColoredPunct)`
   color: #FDF4E2;
   font-family: "pf-grand-gothik-variable", sans-serif;
@@ -71,7 +77,8 @@ const LetsTalk = styled(TextColoredPunct)`
   ::after {
     margin-bottom: -0.25em;
   }
-`
+`;
+
 const FormSubHeader = styled(Text)`
   font-size: 1.625rem;
   color: #fff;
@@ -79,25 +86,67 @@ const FormSubHeader = styled(Text)`
     font-size: 16px;
     font-weight: 500;
   }
-`
+`;
 
 const Contact: React.FC = () => {
+  const formHeaderRef = useRef<HTMLDivElement>(null);
+  const formContainerRef = useRef<HTMLDivElement>(null);
+  const [hasAnimatedHeader, setHasAnimatedHeader] = useState(false);
+  const [hasAnimatedForm, setHasAnimatedForm] = useState(false);
+
+  useEffect(() => {
+    const handleIntersection = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target === formHeaderRef.current && !hasAnimatedHeader) {
+            entry.target.classList.add('slide-in');
+            setHasAnimatedHeader(true);
+          } else if (entry.target === formContainerRef.current && !hasAnimatedForm) {
+              entry.target.classList.add('slide-in-delay');
+              setHasAnimatedForm(true);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      threshold: 0,
+    });
+
+    if (formHeaderRef.current) {
+      observer.observe(formHeaderRef.current);
+    }
+
+    if (formContainerRef.current) {
+      observer.observe(formContainerRef.current);
+    }
+
+    return () => {
+      if (formHeaderRef.current) {
+        observer.unobserve(formHeaderRef.current);
+      }
+      if (formContainerRef.current) {
+        observer.unobserve(formContainerRef.current);
+      }
+    };
+  }, [hasAnimatedHeader, hasAnimatedForm]);
 
   return (
     <>
-        <ContactSection>
-          <FormHeaderContainer>
-            <FormTitleTexts>
-              <LetsTalk>
-                Let's talk<ColoredPunct>.</ColoredPunct>
-              </LetsTalk>
-              <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
-            </FormTitleTexts>
-          </FormHeaderContainer>
-          <FormContainer>
-            <ContactForm />
-          </FormContainer>
-        </ContactSection>
+      <ContactSection>
+        <FormHeaderContainer ref={formHeaderRef}>
+          <FormTitleTexts>
+            <LetsTalk>
+              Let's talk<ColoredPunct>.</ColoredPunct>
+            </LetsTalk>
+            <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
+          </FormTitleTexts>
+        </FormHeaderContainer>
+        <FormContainer ref={formContainerRef}>
+          <ContactForm />
+        </FormContainer>
+      </ContactSection>
     </>
   );
 };
