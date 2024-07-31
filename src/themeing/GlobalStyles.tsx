@@ -74,11 +74,11 @@ const GlobalStyles: React.FC = () => (
         }
       }
       .slide-in {
-        animation: slideInOpacity 2s forwards;
+        animation: slideInOpacity 1s forwards;
       }
       .slide-in-delay {
-        animation: slideInOpacity 2s forwards;
-        animation-delay: 0.5s;
+        animation: slideInOpacity 1s forwards;
+        animation-delay: 0.25s;
       }
     `}
   />

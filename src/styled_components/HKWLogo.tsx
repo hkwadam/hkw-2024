@@ -15,8 +15,8 @@ const HKWLogo = styled.div`
   }
   opacity: 0;
   transform: translateY(5px);
-  animation: slideInOpacityHero 2s forwards;
-  animation-delay: 0.75s;
+  animation: slideInOpacityHero 1s forwards;
+  animation-delay: 0.25s;
 `;
 
 export default HKWLogo;

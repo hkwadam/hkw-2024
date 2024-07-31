@@ -32,8 +32,8 @@ const LetsTalk = styled(TextColoredPunct)`
   }
   opacity: 0;
   transform: translateY(5px);
-  animation: slideInOpacityHero 2s forwards;
-  animation-delay: 1s;
+  animation: slideInOpacityHero 1s forwards;
+  animation-delay: 0.5s;
 `
 
 const NavBar: React.FC<NavBarProps> = ({ contactRef, setShowOverlay }) => {

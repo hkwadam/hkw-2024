@@ -70,18 +70,18 @@ const HeroText = styled(Text)`
   line-height: 115%;
   opacity: 0;
   transform: translateY(40px);
-  animation: slideInOpacity 2s forwards;
-  animation-delay: 0.75s;
+  animation: slideInOpacity 1s forwards;
+  animation-delay: 0.25s;
   @media (max-width: 1080px) {
     font-size: 1rem;
   }
   @media (max-width: 600px) {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
   }
 `;
 
 const HeroTextRight = styled(HeroText)`
-  animation-delay: 1s;
+  animation-delay: 0.5s;
 `
 
 const HeroBottomContainer = styled(Container)`
@@ -123,7 +123,7 @@ const HeroHeader = styled(TextColorPunct)`
     letter-spacing: -1.9px;
   }
   transform: translateY(40px);
-  animation: slideInTranslate 2s forwards;
+  animation: slideInTranslate 1s forwards;
 `;
 
 const WhitePeriod = styled(ColoredPunct)`
