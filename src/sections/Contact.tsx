@@ -48,8 +48,11 @@ const FormContainer = styled(Container)<{ isFormSubmitted: boolean }>`
     grid-column: 1 / 13;
     padding: 40px 20px;
   }
+  max-height: ${({ isFormSubmitted }) => (isFormSubmitted ? '100px' : '1000px')};
   height: 100%;
   overflow: hidden;
+  opacity: ${({ isFormSubmitted }) => (isFormSubmitted ? '1' : '0')};
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 `;
 
 const LetsTalk = styled(TextColoredPunct)`
@@ -109,9 +112,11 @@ const Contact: React.FC = () => {
           if (entry.target === formHeaderRef.current && !hasAnimatedHeader) {
             entry.target.classList.add('slide-in');
             setHasAnimatedHeader(true);
+            observer.unobserve(entry.target);
           } else if (entry.target === formContainerRef.current && !hasAnimatedForm) {
               entry.target.classList.add('slide-in-delay');
               setHasAnimatedForm(true);
+              observer.unobserve(entry.target);
           }
         }
       });
@@ -119,7 +124,7 @@ const Contact: React.FC = () => {
 
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
-      threshold: 0,
+      threshold: 0.1,
     });
 
     if (formHeaderRef.current) {
@@ -155,7 +160,7 @@ const Contact: React.FC = () => {
             <FormSubHeader>The world changes one conversation<br className="mobile-only"></br>at a time.</FormSubHeader>
           </FormTitleTexts>
         </FormHeaderContainer>
-        <FormContainer className="formcontainer" ref={formContainerRef} isFormSubmitted={isFormSubmitted}>
+        <FormContainer ref={formContainerRef} isFormSubmitted={isFormSubmitted}>
           <ContactForm onFormSubmit={handleFormSubmit} isFormSubmitted={isFormSubmitted} />
         </FormContainer>
       </ContactSection>
