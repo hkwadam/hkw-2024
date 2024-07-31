@@ -20,13 +20,13 @@ const FormHeader = styled(Label)`
   font-weight: 450;
 `;
 
-const SubmitButton = styled(Button)`
-  background-color: transparent;
-  background: linear-gradient(transparent 50%, #FDF4E2 50%);
+const SubmitButton = styled(Button)<{ isSubmitting: boolean }>`
+  background-color: ${({ isSubmitting }) => (isSubmitting ? '#FDF4E2' : 'transparent')};
+  background: ${({ isSubmitting }) => (isSubmitting ? 'linear-gradient(transparent)' : 'linear-gradient(transparent 50%, #FDF4E2 50%)')};
   background-repeat: repeat;
   background-size: 100% 200%;
   transition: all 0.3s linear;
-  color: #FDF4E2;
+  color: ${({ isSubmitting }) => (isSubmitting ? '#171717' : '#FDF4E2')};
   border: 1px solid #FDF4E2;
   padding: 1.5rem;
   border-radius: 3rem;
@@ -50,6 +50,7 @@ type Inputs = {
 
 const ContactForm: React.FC = () => {
   const [isSent, setIsSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const {
     register,
     handleSubmit,
@@ -84,6 +85,7 @@ const ContactForm: React.FC = () => {
   };
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setIsSubmitting(true);
     const templateParams = {
       from_name: data.name,
       from_email: data.email,
@@ -98,9 +100,11 @@ const ContactForm: React.FC = () => {
       .send('HKW_contact_form', 'contact_form', templateParams, { publicKey: 'SU5SXRijMIg8MP5Kx', })
       .then(() => {
         setIsSent(true);
+        setIsSubmitting(false);
         console.log('email sent');
       })
       .catch((error) => {
+        setIsSubmitting(false);
         console.error("error", error);
       });
   };
@@ -193,7 +197,7 @@ const ContactForm: React.FC = () => {
         {isSent ? (
           <SentMessage><PaperPlane />Thanks for reaching out, we’ll get back to you soon.</SentMessage>
         ) : (
-          <SubmitButton type="submit">Send your message</SubmitButton>
+          <SubmitButton type="submit" isSubmitting={isSubmitting}>{isSubmitting ? 'Sending' : 'Send your message'}</SubmitButton>
         )}
       </Form>
     </>
