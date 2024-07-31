@@ -6,6 +6,8 @@ import TextColoredPunct from '../styled_components/TextColorPunct';
 import ColoredPunct from '../styled_components/ColoredPunct';
 import Text from '../styled_components/Text';
 import ContactForm from '../components/ContactForm';
+import SentMessage from '../styled_components/SentMessage';
+import PaperPlane from '../styled_components/PaperPlane';
 
 const ContactSection = styled(Section)`
   padding: 5rem 0 3rem 0;
@@ -36,7 +38,7 @@ const FormTitleTexts = styled(Container)`
   }
 `;
 
-const FormContainer = styled(Container)`
+const FormContainer = styled(Container)<{ isFormSubmitted: boolean }>`
   background-color: #1F1F1F;
   grid-column: 6 / 13;
   border-radius: 2.5rem;
@@ -47,7 +49,11 @@ const FormContainer = styled(Container)`
     grid-column: 1 / 13;
     padding: 40px 20px;
   }
-  opacity: 0;
+  opacity: ${({ isFormSubmitted }) => (isFormSubmitted ? '1' : '0')};;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  max-height: ${({ isFormSubmitted }) => (isFormSubmitted ? '250px' : '1000px')};
+  height: 100%;
+  overflow: hidden;
 `;
 
 const LetsTalk = styled(TextColoredPunct)`
@@ -98,6 +104,7 @@ const Contact: React.FC = () => {
   const formContainerRef = useRef<HTMLDivElement>(null);
   const [hasAnimatedHeader, setHasAnimatedHeader] = useState(false);
   const [hasAnimatedForm, setHasAnimatedForm] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
@@ -137,6 +144,10 @@ const Contact: React.FC = () => {
     };
   }, [hasAnimatedHeader, hasAnimatedForm]);
 
+  const handleFormSubmit = () => {
+    setIsFormSubmitted(true);
+  };
+
   return (
     <>
       <ContactSection>
@@ -148,8 +159,9 @@ const Contact: React.FC = () => {
             <FormSubHeader>The world changes one conversation<br className="mobile-only"></br>at a time.</FormSubHeader>
           </FormTitleTexts>
         </FormHeaderContainer>
-        <FormContainer ref={formContainerRef}>
-          <ContactForm />
+        <FormContainer className="formcontainer" ref={formContainerRef} isFormSubmitted={isFormSubmitted}>
+          {!isFormSubmitted && <ContactForm onFormSubmit={handleFormSubmit} />}
+          {isFormSubmitted && <SentMessage>Thanks for reaching out, we’ll get back to you soon.</SentMessage>}
         </FormContainer>
       </ContactSection>
     </>

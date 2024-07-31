@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -10,8 +9,6 @@ import TextInput from '../styled_components/TextInput';
 import TextArea from '../styled_components/TextArea';
 import Button from '../styled_components/Button';
 import ErrorMessage from '../styled_components/ErrorMessage';
-import SentMessage from '../styled_components/SentMessage';
-import PaperPlane from '../styled_components/PaperPlane';
 import { MultiSelectContainer, MultiSelectButton } from '../styled_components/MultiSelect';
 
 const FormHeader = styled(Label)`
@@ -49,7 +46,11 @@ type Inputs = {
   project: string;
 };
 
-const ContactForm: React.FC = () => {
+interface ContactFormProps {
+  onFormSubmit: () => void;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
   const [isSent, setIsSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {
@@ -102,6 +103,7 @@ const ContactForm: React.FC = () => {
       .then(() => {
         setIsSent(true);
         setIsSubmitting(false);
+        onFormSubmit(); // Notify parent component that form is submitted
         console.log('email sent');
       })
       .catch((error) => {
@@ -195,11 +197,7 @@ const ContactForm: React.FC = () => {
           <TextArea defaultValue="" error={!!errors.project} {...register("project", { required: true })} />
           {errors.project && <ErrorMessage className="error-message">This is required</ErrorMessage>}
         </FormInputContainer>
-        {isSent ? (
-          <SentMessage><PaperPlane />Thanks for reaching out, we’ll get back to you soon.</SentMessage>
-        ) : (
-          <SubmitButton type="submit" isSubmitting={isSubmitting}>{isSubmitting ? 'Sending' : 'Send your message'}</SubmitButton>
-        )}
+        <SubmitButton type="submit" isSubmitting={isSubmitting}>{isSubmitting ? 'Sending' : 'Send your message'}</SubmitButton>
       </Form>
     </>
   );
