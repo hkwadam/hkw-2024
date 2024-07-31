@@ -5,6 +5,8 @@ const TextInput = styled.input<{ error?: boolean }>`
   background-color: transparent;
   border: 1px solid transparent;
   font-size: 1.25rem;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 450;
   border-bottom: 1px solid ${props => props.error ? 'red' : '#9E9E9E'};
   height: 4rem;
   padding: 0;

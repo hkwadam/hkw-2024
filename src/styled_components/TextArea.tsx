@@ -15,7 +15,8 @@ const TextAreaStyled = styled.textarea`
   color: #fff;
   resize: none;
   overflow: hidden;
-
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 450;
   &.has-text,
   &:focus {
     margin-top: 1rem;

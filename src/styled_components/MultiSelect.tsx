@@ -21,6 +21,7 @@ const MultiSelectButton = styled.button<{ selected: boolean }>`
   background-repeat: repeat;
   background-size: 100% 200%;
   transition: all 0.3s ease-in-out;
+  font-family: "neue-haas-grotesk-display", sans-serif;
   @media (min-width: 1080px) {
     &:hover {
         color: #1F1F1F;
