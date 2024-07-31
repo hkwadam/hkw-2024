@@ -63,7 +63,7 @@ const GlobalStyles: React.FC = () => (
           opacity: 1;
         }
       }
-        @keyframes slideInOpacityHero {
+      @keyframes slideInOpacityHero {
         from {
           transform: translateY(1rem);
           opacity: 0;
@@ -72,6 +72,13 @@ const GlobalStyles: React.FC = () => (
           transform: translateY(0);
           opacity: 1;
         }
+      }
+      .slide-in {
+        animation: slideInOpacity 2s forwards;
+      }
+      .slide-in-delay {
+        animation: slideInOpacity 2s forwards;
+        animation-delay: 0.5s;
       }
     `}
   />

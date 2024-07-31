@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import Section from '../styled_components/Section';
 import Container from '../styled_components/Container';
 import Text from '../styled_components/Text';
+import SlideInContainer from '../styled_components/SlideInContainer';
 
 const services = [
   'Strategy', 'Branding', 'Writing', 'Design', 'Web', 'Apps', 
@@ -14,7 +15,8 @@ const ServicesSection = styled(Section)`
   @media (max-width: 1080px) {
     padding: 48px 0;
   }
-`
+`;
+
 const ServicesLeft = styled(Container)`
   grid-column: 1 / 6;
   justify-content: flex-start;
@@ -26,7 +28,8 @@ const ServicesLeft = styled(Container)`
     grid-column: 1 / 13;
     margin-bottom: 24px;
   }
-`
+  opacity: 0;
+`;
 
 const ServicesRight = styled(Container)`
   grid-column: 6 / 13;
@@ -39,6 +42,14 @@ const ServicesRight = styled(Container)`
   }
   @media (max-width: 600px) {
     gap: 16px;
+  }
+  opacity: 0;
+`;
+
+const SlideInContainerSticky = styled(SlideInContainer)`
+  @media (min-width: 1081px) {
+    position: sticky;
+    top: 6rem;
   }
 `
 
@@ -59,11 +70,7 @@ const ServicesHeader = styled(Text)`
     font-size: 32px;
     letter-spacing: -1px;
   }
-  @media (min-width: 1081px) {
-    position: sticky;
-    top: 6rem;
-  }
-`
+`;
 
 const ServiceText = styled(Text)`
   color: rgba(255, 255, 255, 0.20);
@@ -99,11 +106,14 @@ const ServiceText = styled(Text)`
       color: white;
     }
   }
-
-`
+`;
 
 const Services: React.FC = () => {
   const headerRef = useRef<HTMLParagraphElement>(null);
+  const servicesLeftRef = useRef<HTMLDivElement>(null);
+  const servicesRightRef = useRef<HTMLDivElement>(null);
+  const [hasAnimatedLeft, setHasAnimatedLeft] = useState(false);
+  const [hasAnimatedRight, setHasAnimatedRight] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,20 +142,55 @@ const Services: React.FC = () => {
       }
     };
 
+    const handleIntersection = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target === servicesLeftRef.current && !hasAnimatedLeft) {
+            entry.target.classList.add('slide-in');
+            setHasAnimatedLeft(true);
+          } else if (entry.target === servicesRightRef.current && !hasAnimatedRight) {
+              entry.target.classList.add('slide-in-delay');
+              setHasAnimatedRight(true);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      threshold: 0,
+    });
+
+    if (servicesLeftRef.current) {
+      observer.observe(servicesLeftRef.current);
+    }
+
+    if (servicesRightRef.current) {
+      observer.observe(servicesRightRef.current);
+    }
+
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (servicesLeftRef.current) {
+        observer.unobserve(servicesLeftRef.current);
+      }
+      if (servicesRightRef.current) {
+        observer.unobserve(servicesRightRef.current);
+      }
     };
-  }, []);
+  }, [hasAnimatedLeft, hasAnimatedRight]);
 
   return (
     <ServicesSection>
-      <ServicesLeft>
-        <ServicesHeader ref={headerRef}>services</ServicesHeader>
-      </ServicesLeft>
-      <ServicesRight className="services-right">
+      <SlideInContainerSticky>
+        <ServicesLeft ref={servicesLeftRef}>
+          <ServicesHeader ref={headerRef}>services</ServicesHeader>
+        </ServicesLeft>
+      </SlideInContainerSticky>
+      <ServicesRight ref={servicesRightRef} className="services-right">
         {services.map((service, index) => (
           <ServiceText key={index} className="service-text">{service}</ServiceText>
         ))}
