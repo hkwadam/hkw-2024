@@ -64,7 +64,7 @@ const ServicesHeader = styled(Text)`
   letter-spacing: -2px;
   text-transform: uppercase;
   @media (max-width: 1080px) {
-    font-size: 40px;
+    font-size: 64px;
     letter-spacing: -2px;
   }
   @media (max-width: 600px) {
@@ -82,7 +82,7 @@ const ServiceText = styled(Text)`
   letter-spacing: -3.2px;
   line-height: unset;
   @media (max-width: 1080px) {
-    font-size: 46px;
+    font-size: 128px;
     gap: 30px;
   }
   @media (max-width: 600px) {

@@ -59,7 +59,7 @@ const LetsTalk = styled(TextColoredPunct)`
   text-transform: uppercase;
   font-size: 3.2rem;
   @media (max-width: 1080px) {
-    font-size: 40px;
+    font-size: 64px;
     letter-spacing: -0.22rem;
   }
   @media (max-width: 600px) {
@@ -85,6 +85,11 @@ const FormSubHeader = styled(Text)`
   @media (max-width: 600px) {
     font-size: 16px;
     font-weight: 500;
+  }
+  @media (max-width: 1080px) {
+    .mobile-only {
+      display: none;
+    }
   }
 `;
 
@@ -140,7 +145,7 @@ const Contact: React.FC = () => {
             <LetsTalk>
               Let's talk<ColoredPunct>.</ColoredPunct>
             </LetsTalk>
-            <FormSubHeader>The world changes one conversation at a time.</FormSubHeader>
+            <FormSubHeader>The world changes one conversation<br className="mobile-only"></br>at a time.</FormSubHeader>
           </FormTitleTexts>
         </FormHeaderContainer>
         <FormContainer ref={formContainerRef}>
