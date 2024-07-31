@@ -115,18 +115,20 @@ const ContactForm: React.FC = () => {
       if (input && label) {
         const addShrinkClass = () => label.classList.add('shrink');
         const removeShrinkClass = () => {
-          if (!input.value) label.classList.remove('shrink');
+          if (!input.value && !input.matches(':focus')) {
+            label.classList.remove('shrink');
+          }
         };
-
+  
         input.addEventListener('focus', addShrinkClass);
         input.addEventListener('blur', removeShrinkClass);
-
-        if (input.value) {
+  
+        if (input.value || input.matches(':focus')) {
           label.classList.add('shrink');
         } else {
           label.classList.remove('shrink');
         }
-
+  
         return () => {
           input.removeEventListener('focus', addShrinkClass);
           input.removeEventListener('blur', removeShrinkClass);
@@ -134,6 +136,7 @@ const ContactForm: React.FC = () => {
       }
     });
   }, [inputValues]);
+  
 
   return (
     <>
