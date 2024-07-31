@@ -7,7 +7,6 @@ import ColoredPunct from '../styled_components/ColoredPunct';
 import Text from '../styled_components/Text';
 import ContactForm from '../components/ContactForm';
 import SentMessage from '../styled_components/SentMessage';
-import PaperPlane from '../styled_components/PaperPlane';
 
 const ContactSection = styled(Section)`
   padding: 5rem 0 3rem 0;
@@ -49,9 +48,6 @@ const FormContainer = styled(Container)<{ isFormSubmitted: boolean }>`
     grid-column: 1 / 13;
     padding: 40px 20px;
   }
-  opacity: ${({ isFormSubmitted }) => (isFormSubmitted ? '1' : '0')};;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  max-height: ${({ isFormSubmitted }) => (isFormSubmitted ? '250px' : '1000px')};
   height: 100%;
   overflow: hidden;
 `;
@@ -160,8 +156,7 @@ const Contact: React.FC = () => {
           </FormTitleTexts>
         </FormHeaderContainer>
         <FormContainer className="formcontainer" ref={formContainerRef} isFormSubmitted={isFormSubmitted}>
-          {!isFormSubmitted && <ContactForm onFormSubmit={handleFormSubmit} />}
-          {isFormSubmitted && <SentMessage>Thanks for reaching out, we’ll get back to you soon.</SentMessage>}
+          <ContactForm onFormSubmit={handleFormSubmit} isFormSubmitted={isFormSubmitted} />
         </FormContainer>
       </ContactSection>
     </>

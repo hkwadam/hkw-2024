@@ -48,9 +48,10 @@ type Inputs = {
 
 interface ContactFormProps {
   onFormSubmit: () => void;
+  isFormSubmitted: boolean;
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
+const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit, isFormSubmitted }) => {
   const [isSent, setIsSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {
@@ -103,7 +104,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
       .then(() => {
         setIsSent(true);
         setIsSubmitting(false);
-        onFormSubmit(); // Notify parent component that form is submitted
+        onFormSubmit();
         console.log('email sent');
       })
       .catch((error) => {
@@ -146,7 +147,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form isFormSubmitted={isFormSubmitted} onSubmit={handleSubmit(onSubmit)}>
         <FormHeader>What can we help you with?</FormHeader>
         <MultiSelectContainer>
           {productTypeOptions.map((option) => (
