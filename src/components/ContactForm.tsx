@@ -32,6 +32,7 @@ const SubmitButton = styled(Button)<{ isSubmitting: boolean }>`
   border-radius: 3rem;
   font-size: 1.25rem;
   margin-top: 1.5rem;
+  cursor: ${({ isSubmitting }) => (isSubmitting ? 'not-allowed' : 'pointer')};
   &:hover {
     color: #1F1F1F;
     background-position: 0 100%;
