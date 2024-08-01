@@ -48,7 +48,7 @@ const FormContainer = styled(Container)<{ isFormSubmitted: boolean }>`
     grid-column: 1 / 13;
     padding: 40px 20px;
   }
-  max-height: ${({ isFormSubmitted }) => (isFormSubmitted ? '8rem' : '3000px')};
+  max-height: ${({ isFormSubmitted }) => (isFormSubmitted ? '8rem' : '100rem')};
   height: 100%;
   overflow: hidden;
   opacity: ${({ isFormSubmitted }) => (isFormSubmitted ? '1' : '0')};
