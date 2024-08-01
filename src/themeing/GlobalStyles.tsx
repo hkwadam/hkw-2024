@@ -2,11 +2,14 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
 import { Theme } from '.';
-// TODO: figure out how to make the text fit for tablet better its not super responsive
-// for example see the were changing everything header
+
 const GlobalStyles: React.FC = () => (
   <Global
     styles={(theme: Theme) => css`
+      *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+        all: unset;
+        display: revert;
+      }
       html {
         font-size: 24px;
         @media (min-width: 1441px) {
