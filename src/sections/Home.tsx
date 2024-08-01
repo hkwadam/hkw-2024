@@ -66,7 +66,7 @@ const HeroRightContainer = styled(Container)`
 `;
 
 const HeroText = styled(Text)`
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 115%;
   opacity: 0;
   transform: translateY(40px);
@@ -109,7 +109,7 @@ const HeroHeader = styled(TextColorPunct)`
   margin-top: 0;
   margin-bottom: -1.25rem;
   @media (min-width: 1440px) {
-    font-size: 6.5rem;
+    font-size: 6rem;
   }
   @media (max-width: 1080px) {
     font-size: 5rem;
