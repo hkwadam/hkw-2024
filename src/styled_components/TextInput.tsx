@@ -8,7 +8,7 @@ const TextInput = styled.input<{ error?: boolean }>`
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 450;
   border-bottom: 1px solid ${props => props.error ? 'red' : '#9E9E9E'};
-  height: 4rem;
+  height: 3rem;
   padding: 0;
   :hover {
     border-bottom: 1px solid ${props => props.error ? 'red' : '#fff'};

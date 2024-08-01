@@ -8,11 +8,11 @@ const FormInputContainer = styled.div`
   background-color: transparent;
   position: relative;
   margin-bottom: 2rem;
-
+  margin-top: 1rem;
   label {
     position: absolute;
     left: 0;
-    top: 2rem;
+    top: 1rem;
     font-size: 1.389vw;
     @media (max-width: 1439px) {
       font-size: 20px;
@@ -26,7 +26,7 @@ const FormInputContainer = styled.div`
     &.shrink {
       color: #fff;
       font-size: 1rem;
-      top: -0.5rem;
+      top: -1.5rem;
     }
     &.textarea {
       top: 1.75rem;
