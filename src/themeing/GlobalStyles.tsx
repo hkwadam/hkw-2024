@@ -6,10 +6,6 @@ import { Theme } from '.';
 const GlobalStyles: React.FC = () => (
   <Global
     styles={(theme: Theme) => css`
-      *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-        all: unset;
-        display: revert;
-      }
       html {
         font-size: 24px;
         @media (min-width: 1441px) {

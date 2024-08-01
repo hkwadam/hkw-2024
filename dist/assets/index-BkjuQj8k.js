@@ -353,11 +353,11 @@ Error generating stack: `+l.message+`
   background-color: transparent;
   position: relative;
   margin-bottom: 2rem;
-
+  margin-top: 1rem;
   label {
     position: absolute;
     left: 0;
-    top: 2rem;
+    top: 1rem;
     font-size: 1.389vw;
     @media (max-width: 1439px) {
       font-size: 20px;
@@ -371,7 +371,7 @@ Error generating stack: `+l.message+`
     &.shrink {
       color: #fff;
       font-size: 1rem;
-      top: -0.5rem;
+      top: -1.5rem;
     }
     &.textarea {
       top: 1.75rem;
@@ -412,7 +412,7 @@ Error generating stack: `+l.message+`
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 450;
   border-bottom: 1px solid ${e=>e.error?"red":"#9E9E9E"};
-  height: 4rem;
+  height: 3rem;
   padding: 0;
   :hover {
     border-bottom: 1px solid ${e=>e.error?"red":"#fff"};
@@ -643,10 +643,6 @@ Error generating stack: `+l.message+`
  *
  * @license MIT
  */const G1="6";try{window.__reactRouterVersion=G1}catch{}const X1="startTransition",Gc=bo[X1];function q1(e){let{basename:t,children:n,future:r,window:i}=e,l=L.useRef();l.current==null&&(l.current=d1({window:i,v5Compat:!0}));let o=l.current,[s,a]=L.useState({action:o.action,location:o.location}),{v7_startTransition:c}=r||{},p=L.useCallback(f=>{c&&Gc?Gc(()=>a(f)):a(f)},[a,c]);return L.useLayoutEffect(()=>o.listen(p),[o,p]),L.createElement(K1,{basename:t,children:n,location:s.location,navigationType:s.action,navigator:o,future:r})}var Xc;(function(e){e.UseScrollRestoration="useScrollRestoration",e.UseSubmit="useSubmit",e.UseSubmitFetcher="useSubmitFetcher",e.UseFetcher="useFetcher",e.useViewTransitionState="useViewTransitionState"})(Xc||(Xc={}));var qc;(function(e){e.UseFetcher="useFetcher",e.UseFetchers="useFetchers",e.UseScrollRestoration="useScrollRestoration"})(qc||(qc={}));const rh={root:{padding:"0 60px",mobilePadding:"0 20px",tabletPadding:"0 20px",gridTemplateColumns:"repeat( 12, 1fr)",gap:"0 16px"},nav:{padding:"36px 0 56px 0",mobilePadding:"20px 0 0 0",tabletPadding:"24px 0",buttonBackground:"transparent",buttonColor:"#fff",buttonPadding:"0",fontSize:"16px",fontWeight:"700",lineHeight:"23px"}},b1={...rh,colors:{background:"#171717",text:"#fff",selectBackground:"#555",selectText:"#fff",border:"#fff",mainNavBackground:"transparent",mainNavText:"#fff"}},Z1={...rh,colors:{background:"#fff",text:"#171717",selectBackground:"#f0f0f0",selectText:"#000",border:"#000",mainNavBackground:"transparent",mainNavText:"#171717"}},J1=()=>Q(jg,{styles:e=>Dg`
-      *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-        all: unset;
-        display: revert;
-      }
       html {
         font-size: 24px;
         @media (min-width: 1441px) {
@@ -720,4 +716,4 @@ Error generating stack: `+l.message+`
         animation: slideInOpacity 1s forwards;
         animation-delay: 0.25s;
       }
-    `}),ey={dark:b1,light:Z1},ty=()=>{const[e]=L.useState("dark"),t=L.useRef(null);return j.jsxs(Og,{theme:ey[e],children:[j.jsx(J1,{}),j.jsxs(q1,{basename:"/hkw-2024/",children:[" if pushing to github",j.jsx(Y1,{children:j.jsx(nh,{path:"/",element:j.jsx(f1,{contactRef:t})})})]})]})};Zo.createRoot(document.getElementById("root")).render(j.jsx(De.StrictMode,{children:j.jsx(ty,{})}));
+    `}),ey={dark:b1,light:Z1},ty=()=>{const[e]=L.useState("dark"),t=L.useRef(null);return j.jsxs(Og,{theme:ey[e],children:[j.jsx(J1,{}),j.jsx(q1,{basename:"/hkw-2024/",children:j.jsx(Y1,{children:j.jsx(nh,{path:"/",element:j.jsx(f1,{contactRef:t})})})})]})};Zo.createRoot(document.getElementById("root")).render(j.jsx(De.StrictMode,{children:j.jsx(ty,{})}));
